@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rizka Ayu Ramadhani — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════
+   SOFT COLORFUL PALETTE
+═══════════════════════════════════ */
+:root {
+  --white: #ffffff;
+  --bg: #fafbff;
+
+  /* Soft Indigo / Blue — primary */
+  --ind-50: #eef2ff; --ind-100: #e0e7ff; --ind-200: #c7d2fe;
+  --ind-400: #818cf8; --ind-500: #6366f1; --ind-600: #4f46e5; --ind-700: #4338ca;
+
+  /* Soft Emerald — green */
+  --em-50: #ecfdf5; --em-100: #d1fae5; --em-200: #a7f3d0;
+  --em-400: #34d399; --em-600: #059669; --em-700: #047857;
+
+  /* Soft Rose — pink */
+  --ro-50: #fff1f2; --ro-100: #ffe4e6; --ro-200: #fecdd3;
+  --ro-400: #fb7185; --ro-600: #e11d48; --ro-700: #be123c;
+
+  /* Soft Amber — yellow */
+  --am-50: #fffbeb; --am-100: #fef3c7; --am-200: #fde68a;
+  --am-400: #fbbf24; --am-600: #d97706; --am-700: #b45309;
+
+  /* Soft Violet — purple */
+  --vi-50: #f5f3ff; --vi-100: #ede9fe; --vi-200: #ddd6fe;
+  --vi-400: #a78bfa; --vi-600: #7c3aed; --vi-700: #6d28d9;
+
+  /* Soft Cyan — teal */
+  --cy-50: #ecfeff; --cy-100: #cffafe; --cy-200: #a5f3fc;
+  --cy-400: #22d3ee; --cy-600: #0891b2; --cy-700: #0e7490;
+
+  /* Neutrals */
+  --gray-50:#f9fafb; --gray-100:#f3f4f6; --gray-200:#e5e7eb;
+  --gray-300:#d1d5db; --gray-400:#9ca3af; --gray-500:#6b7280;
+  --gray-600:#4b5563; --gray-700:#374151; --gray-800:#1f2937; --gray-900:#111827;
+
+  --accent: var(--ind-600);
+  --sh-sm: 0 1px 4px rgba(99,102,241,0.07);
+  --sh-md: 0 4px 20px rgba(99,102,241,0.1), 0 2px 8px rgba(0,0,0,0.04);
+  --sh-lg: 0 16px 48px rgba(99,102,241,0.13), 0 6px 20px rgba(0,0,0,0.05);
+  --sh-xl: 0 32px 80px rgba(99,102,241,0.16);
+  --r: 16px; --r-sm: 10px; --r-full: 9999px;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--gray-800);overflow-x:hidden;cursor:none;}
+
+/* CURSOR */
+.cursor{width:9px;height:9px;background:var(--ind-500);border-radius:50%;position:fixed;z-index:9999;pointer-events:none;transform:translate(-50%,-50%);}
+.cursor-ring{width:32px;height:32px;border:1.5px solid var(--ind-400);border-radius:50%;position:fixed;z-index:9998;pointer-events:none;transform:translate(-50%,-50%);opacity:0.5;transition:all 0.18s;}
+.cursor-ring.hov{width:52px;height:52px;opacity:0.18;background:var(--ind-100);}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--gray-100);}
+::-webkit-scrollbar-thumb{background:var(--ind-200);border-radius:2px;}
+
+/* PROGRESS BAR — rainbow gradient */
+#pbar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--em-400),var(--ind-500),var(--vi-400),var(--ro-400),var(--am-400));z-index:9999;width:0;transition:width 0.1s;}
+
+/* BACK TO TOP */
+#btop{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:50%;background:var(--ind-600);color:white;border:none;cursor:pointer;z-index:400;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(99,102,241,0.4);opacity:0;transform:translateY(10px);transition:all 0.3s;}
+#btop.show{opacity:1;transform:translateY(0);}
+#btop:hover{background:var(--ind-700);transform:translateY(-3px);}
+#btop svg{width:18px;height:18px;stroke:white;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 4%;height:66px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--ind-100);transition:box-shadow 0.3s;}
+nav.scrolled{box-shadow:0 4px 24px rgba(99,102,241,0.09);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--gray-900);text-decoration:none;}
+.nav-logo span{color:var(--ind-600);}
+.nav-links{display:flex;gap:0.2rem;list-style:none;}
+.nav-links a{text-decoration:none;font-size:0.79rem;font-weight:500;color:var(--gray-500);padding:0.38rem 0.75rem;border-radius:var(--r-full);transition:all 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--ind-600);background:var(--ind-50);}
+.nav-cta{background:var(--ind-600)!important;color:white!important;padding:0.42rem 1rem!important;}
+.nav-cta:hover{background:var(--ind-700)!important;transform:translateY(-1px);}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.8rem 1.6rem;border-radius:var(--r-full);font-size:0.86rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all 0.23s;font-family:inherit;}
+.btn-ind{background:var(--ind-600);color:white;box-shadow:0 4px 14px rgba(99,102,241,0.3);}
+.btn-ind:hover{background:var(--ind-700);transform:translateY(-2px);box-shadow:0 8px 22px rgba(99,102,241,0.38);}
+.btn-out{background:white;color:var(--gray-700);border:1.5px solid var(--gray-200);}
+.btn-out:hover{border-color:var(--ind-300,#a5b4fc);color:var(--ind-600);transform:translateY(-2px);box-shadow:var(--sh-md);}
+.btn-white{background:white;color:var(--ind-600);font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,0.14);}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,0.18);}
+.btn-sm{padding:0.48rem 1rem;font-size:0.78rem;}
+.btn-em{background:var(--em-600);color:white;}
+.btn-em:hover{background:var(--em-700);transform:translateY(-1px);}
+
+/* SCROLL REVEAL */
+.sr{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.sr.show{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}.d4{transition-delay:.32s;}
+
+/* SECTION BASE */
+.section{padding:7rem 5%;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-header{text-align:center;margin-bottom:3.8rem;}
+.chip{display:inline-block;font-size:0.69rem;font-weight:700;letter-spacing:0.11em;text-transform:uppercase;padding:0.26rem 0.88rem;border-radius:var(--r-full);margin-bottom:0.85rem;}
+.c-ind{background:var(--ind-50);color:var(--ind-600);border:1px solid var(--ind-100);}
+.c-em{background:var(--em-50);color:var(--em-600);border:1px solid var(--em-100);}
+.c-ro{background:var(--ro-50);color:var(--ro-600);border:1px solid var(--ro-100);}
+.c-am{background:var(--am-50);color:var(--am-600);border:1px solid var(--am-100);}
+.c-vi{background:var(--vi-50);color:var(--vi-600);border:1px solid var(--vi-100);}
+.c-cy{background:var(--cy-50);color:var(--cy-600);border:1px solid var(--cy-100);}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.85rem,3vw,2.65rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:var(--gray-900);margin-bottom:0.9rem;}
+.sec-title em{font-style:italic;font-weight:400;color:var(--ind-600);}
+.sec-sub{font-size:0.96rem;color:var(--gray-500);max-width:490px;margin:0 auto;line-height:1.72;}
+
+/* ══ HERO ══ */
+#home{min-height:100vh;padding-top:66px;display:flex;align-items:center;position:relative;overflow:hidden;background:var(--bg);}
+.hbg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(var(--ind-100) 1px,transparent 1px),linear-gradient(90deg,var(--ind-100) 1px,transparent 1px);background-size:54px 54px;opacity:0.45;}
+.blob{position:absolute;z-index:0;border-radius:50%;filter:blur(72px);opacity:0.38;}
+.b1{width:460px;height:460px;background:var(--ind-200);top:-80px;right:-80px;animation:fl1 9s ease-in-out infinite;}
+.b2{width:300px;height:300px;background:var(--em-200);bottom:60px;left:-50px;animation:fl2 11s ease-in-out infinite;}
+.b3{width:180px;height:180px;background:var(--ro-200);top:42%;right:22%;animation:fl1 7s ease-in-out infinite 2s;}
+@keyframes fl1{0%,100%{transform:translate(0,0)scale(1)}50%{transform:translate(-22px,16px)scale(1.04)}}
+@keyframes fl2{0%,100%{transform:translate(0,0)scale(1)}50%{transform:translate(16px,-16px)scale(0.96)}}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:1200px;margin:0 auto;padding:5rem 5%;display:grid;grid-template-columns:1fr 420px;gap:5rem;align-items:start;}
+.hbadge{display:inline-flex;align-items:center;gap:0.5rem;background:var(--ind-50);border:1px solid var(--ind-200);color:var(--ind-600);font-size:0.73rem;font-weight:600;padding:0.3rem 0.82rem;border-radius:var(--r-full);margin-bottom:1.6rem;}
+.bdot{width:6px;height:6px;background:#22c55e;border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5vw,4.8rem);font-weight:700;line-height:1.0;letter-spacing:-0.03em;color:var(--gray-900);margin-bottom:0.5rem;}
+.hero-name .ital{color:var(--ind-600);font-style:italic;font-weight:400;}
+.hero-role{font-size:1rem;color:var(--gray-500);margin-bottom:1.3rem;}
+.hero-role strong{color:var(--gray-700);font-weight:600;}
+.hero-desc{font-size:0.96rem;line-height:1.8;color:var(--gray-600);max-width:480px;margin-bottom:2.2rem;}
+.hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap;margin-bottom:2.8rem;}
+.hstats{display:flex;gap:2rem;}
+.hs-num{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:700;color:var(--gray-900);letter-spacing:-0.02em;}
+.hs-num span{color:var(--ind-600);}
+.hs-lbl{font-size:0.71rem;color:var(--gray-400);font-weight:500;margin-top:0.08rem;}
+/* hero card */
+.hero-card-wrap{position:relative;}
+.hcard{background:white;border-radius:22px;overflow:hidden;box-shadow:var(--sh-xl);border:1px solid var(--gray-100);}
+.hphoto{width:100%;aspect-ratio:4/3;background:linear-gradient(145deg,var(--ind-100),var(--vi-100));display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hphoto img{width:100%;height:100%;object-fit:contain;display:block;}
+.hcard-info{padding:1.2rem;}
+.hci-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;margin-bottom:0.18rem;}
+.hci-role{font-size:0.76rem;color:var(--gray-500);margin-bottom:0.75rem;}
+.hci-tags{display:flex;gap:0.32rem;flex-wrap:wrap;}
+.htag{font-size:0.67rem;font-weight:600;background:var(--ind-50);color:var(--ind-600);padding:0.16rem 0.52rem;border-radius:var(--r-full);border:1px solid var(--ind-100);}
+.hfloat{position:absolute;background:white;border-radius:var(--r);padding:0.7rem 0.95rem;box-shadow:var(--sh-lg);display:flex;align-items:center;gap:0.6rem;border:1px solid var(--gray-100);}
+.hf1{top:-14px;right:-22px;animation:fc 4s ease-in-out infinite;}
+.hf2{bottom:72px;left:-30px;animation:fc 4s ease-in-out infinite 2s;}
+@keyframes fc{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+
+/* ══ ABOUT ══ */
+#about{background:linear-gradient(135deg,var(--ind-50) 0%,var(--em-50) 100%);}
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.aimg-wrap{position:relative;}
+.aimg{width:100%;border-radius:22px;overflow:hidden;box-shadow:var(--sh-lg);}
+.aimg img{width:100%;height:100%;object-fit:contain;display:block;}
+.abadge{position:absolute;bottom:-14px;right:-14px;background:white;padding:0.95rem 1.2rem;border-radius:var(--r);box-shadow:var(--sh-lg);border:1px solid var(--gray-100);text-align:center;}
+.abadge .num{font-family:'Playfair Display',serif;font-size:1.75rem;font-weight:700;color:var(--ind-600);}
+.abadge .lbl{font-size:0.69rem;color:var(--gray-500);}
+.about-text p{font-size:0.95rem;line-height:1.85;color:var(--gray-600);margin-bottom:1.1rem;}
+.agrid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;margin-top:1.5rem;}
+.aitem{background:white;padding:0.95rem;border-radius:var(--r-sm);border:1px solid var(--gray-100);transition:all 0.2s;}
+.aitem:hover{border-color:var(--ind-200);box-shadow:var(--sh-md);transform:translateY(-2px);}
+.aitem-lbl{font-size:0.67rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.2rem;}
+.aitem-val{font-size:0.85rem;font-weight:600;color:var(--gray-800);}
+
+/* ══ EDUCATION ══ */
+#education{background:white;}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;}
+.edu-card{background:white;border-radius:var(--r);padding:1.7rem;border:1px solid var(--gray-100);transition:all 0.3s;position:relative;overflow:hidden;}
+.edu-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.edu-card:hover::before{transform:scaleX(1);}
+.edu-card:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+/* color variants */
+.ec-ind::before{background:linear-gradient(90deg,var(--ind-400),var(--ind-600));}
+.ec-em::before{background:linear-gradient(90deg,var(--em-400),var(--em-600));}
+.ec-am::before{background:linear-gradient(90deg,var(--am-400),var(--am-600));}
+.ec-vi::before{background:linear-gradient(90deg,var(--vi-400),var(--vi-600));}
+.ec-cy::before{background:linear-gradient(90deg,var(--cy-400),var(--cy-600));}
+.ec-ro::before{background:linear-gradient(90deg,var(--ro-400),var(--ro-600));}
+.edu-year{font-size:0.67rem;font-weight:700;letter-spacing:0.08em;margin-bottom:0.42rem;}
+.edu-card h3{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:700;color:var(--gray-900);margin-bottom:0.26rem;line-height:1.3;}
+.edu-inst{font-size:0.78rem;color:var(--gray-500);}
+
+/* ══ EXPERIENCE ══ */
+#experience{background:linear-gradient(135deg,var(--vi-50) 0%,var(--ind-50) 100%);}
+.exp-layout{display:grid;grid-template-columns:235px 1fr;gap:2.2rem;}
+.exp-nav{position:sticky;top:84px;height:fit-content;}
+.enav-item{padding:0.85rem 0.95rem;border-radius:var(--r-sm);cursor:pointer;transition:all 0.2s;margin-bottom:0.3rem;border:1px solid transparent;}
+.enav-item:hover{background:white;border-color:var(--ind-100);}
+.enav-item.active{background:white;border-color:var(--ind-200);box-shadow:var(--sh-sm);}
+.enav-period{font-size:0.65rem;color:var(--gray-400);font-weight:500;margin-bottom:0.16rem;}
+.enav-company{font-size:0.81rem;font-weight:700;color:var(--gray-800);}
+.enav-role{font-size:0.71rem;color:var(--gray-500);}
+.exp-item{display:none;}
+.exp-item.active{display:block;animation:fiu 0.28s ease;}
+@keyframes fiu{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.eheader{background:white;border:1px solid var(--gray-100);border-radius:var(--r);padding:1.6rem;margin-bottom:1.6rem;position:relative;overflow:hidden;}
+.eheader::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.eh-ind::before{background:linear-gradient(90deg,var(--ind-400),var(--ind-600));}
+.eh-em::before{background:linear-gradient(90deg,var(--em-400),var(--em-600));}
+.eh-am::before{background:linear-gradient(90deg,var(--am-400),var(--am-600));}
+.eh-ro::before{background:linear-gradient(90deg,var(--ro-400),var(--ro-600));}
+.eperiod{display:inline-block;color:white;font-size:0.68rem;font-weight:700;padding:0.2rem 0.68rem;border-radius:var(--r-full);margin-bottom:0.85rem;letter-spacing:0.04em;}
+.ep-ind{background:var(--ind-600);}
+.ep-em{background:var(--em-600);}
+.ep-am{background:var(--am-600);}
+.ep-ro{background:var(--ro-600);}
+.etitle{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--gray-900);margin-bottom:0.22rem;}
+.ecompany{font-size:0.85rem;color:var(--gray-500);font-weight:500;}
+.ebullets{list-style:none;margin-bottom:1.6rem;}
+.ebullets li{display:flex;gap:0.7rem;align-items:flex-start;padding:0.65rem 0;border-bottom:1px solid var(--gray-100);font-size:0.88rem;color:var(--gray-600);line-height:1.62;}
+.ebullets li::before{content:'';width:5px;height:5px;background:var(--ind-500);border-radius:50%;flex-shrink:0;margin-top:0.52rem;}
+.etechs{display:flex;gap:0.42rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+.etag{background:var(--gray-50);color:var(--gray-700);border:1px solid var(--gray-200);font-size:0.7rem;font-weight:600;padding:0.23rem 0.62rem;border-radius:var(--r-full);transition:all 0.18s;}
+.etag:hover{background:var(--ind-50);border-color:var(--ind-200);color:var(--ind-600);}
+
+/* ——— EXPERIENCE PHOTOS ——— */
+/* Letaknya: di bawah tags, setelah deskripsi tugas setiap experience */
+.exp-photos-section{border-top:1px solid var(--gray-100);padding-top:1.2rem;margin-top:0.4rem;}
+.exp-photos-label{display:flex;align-items:center;gap:0.45rem;font-size:0.72rem;font-weight:700;color:var(--gray-500);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:0.85rem;}
+.exp-photos-label .ph-icon{width:26px;height:26px;border-radius:7px;background:var(--am-50);display:flex;align-items:center;justify-content:center;font-size:0.85rem;}
+.exp-photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:0.55rem;}
+.exp-photo-item{aspect-ratio:4/3;border-radius:9px;overflow:hidden;cursor:pointer;position:relative;border:1px solid var(--gray-200);transition:all 0.22s;background:var(--gray-50);}
+.exp-photo-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s;}
+.exp-photo-item:hover img{transform:scale(1.07);}
+.exp-photo-item:hover{box-shadow:var(--sh-md);border-color:var(--ind-300,#a5b4fc);}
+/* placeholder slot sebelum ada foto asli */
+.exp-photo-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.3rem;color:var(--gray-300);}
+.exp-photo-placeholder span{font-size:1.4rem;}
+.exp-photo-placeholder p{font-size:0.6rem;color:var(--gray-400);font-weight:500;}
+/* tip cara menambah foto — cukup tampil sekali per section */
+.exp-photo-tip{margin-top:0.65rem;font-size:0.7rem;color:var(--gray-400);background:var(--am-50);border:1px solid var(--am-100);border-radius:7px;padding:0.5rem 0.75rem;line-height:1.5;}
+.exp-photo-tip code{font-family:monospace;font-size:0.68rem;background:white;padding:0.1rem 0.35rem;border-radius:4px;border:1px solid var(--am-200);}
+
+/* Photo wrapper & caption */
+.exp-photo-wrapper{display:flex;flex-direction:column;gap:0.3rem;align-items:center;}
+.exp-photo-caption{font-size:0.65rem;color:var(--gray-600);line-height:1.3;text-align:center;padding:0.2rem 0.25rem;font-weight:500;max-width:110px;}
+
+/* ── EXP TYPE TOGGLE ── */
+.exp-toggle-wrap{display:flex;justify-content:center;margin-bottom:2.5rem;}
+.exp-toggle{display:inline-flex;background:white;border:1.5px solid var(--gray-200);border-radius:var(--r-full);padding:4px;gap:4px;box-shadow:var(--sh-sm);}
+.exp-toggle-btn{display:flex;align-items:center;gap:0.55rem;padding:0.6rem 1.5rem;border-radius:var(--r-full);font-size:0.84rem;font-weight:600;color:var(--gray-500);cursor:pointer;border:none;background:transparent;font-family:inherit;transition:all 0.22s;}
+.exp-toggle-btn .etb-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;background:var(--gray-100);transition:background 0.22s;}
+.exp-toggle-btn:hover{color:var(--gray-700);}
+.exp-toggle-btn.active{background:var(--ind-600);color:white;box-shadow:0 4px 14px rgba(99,102,241,0.3);}
+.exp-toggle-btn.active .etb-icon{background:rgba(255,255,255,0.2);}
+/* panels */
+.exp-panel{display:none;}
+.exp-panel.active{display:block;animation:fiu 0.3s ease;}
+
+/* ── PHOTO MODAL ── */
+.photo-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:1000;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;}
+.photo-modal.active{display:flex;opacity:1;}
+.photo-modal-content{position:relative;background:white;border-radius:16px;padding:2rem;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center;gap:1.2rem;box-shadow:0 25px 50px rgba(0,0,0,0.3);animation:slideUp 0.3s ease;overflow:auto;}
+.photo-modal-image{max-width:100%;max-height:65vh;object-fit:contain;border-radius:12px;}
+.photo-modal-caption{font-size:1.1rem;color:var(--gray-700);text-align:center;font-weight:500;max-width:100%;word-wrap:break-word;}
+.photo-modal-close{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;background:var(--gray-100);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--gray-600);transition:all 0.2s;padding:0;font-weight:300;}
+.photo-modal-close:hover{background:var(--ind-600);color:white;transform:scale(1.1);}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0;}to{transform:translateY(0);opacity:1;}}
+
+/* ══ SKILLS ══ */
+#skills{background:white;}
+/* tab buttons */
+.skill-tabs{display:flex;justify-content:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:2.2rem;}
+.stab{display:flex;align-items:center;gap:0.5rem;padding:0.55rem 1.2rem;border-radius:var(--r-full);font-size:0.8rem;font-weight:600;color:var(--gray-500);cursor:pointer;border:1.5px solid var(--gray-200);background:white;font-family:inherit;transition:all 0.22s;}
+.stab-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.8rem;background:var(--gray-100);transition:background 0.22s;}
+.stab:hover{color:var(--gray-700);border-color:var(--gray-300);background:var(--gray-50);}
+.stab.active-ind{background:var(--ind-600);color:white;border-color:var(--ind-600);box-shadow:0 4px 14px rgba(99,102,241,0.3);}
+.stab.active-ind .stab-icon{background:rgba(255,255,255,0.22);}
+.stab.active-em{background:var(--em-600);color:white;border-color:var(--em-600);box-shadow:0 4px 14px rgba(5,150,105,0.3);}
+.stab.active-em .stab-icon{background:rgba(255,255,255,0.22);}
+.stab.active-am{background:var(--am-600);color:white;border-color:var(--am-600);box-shadow:0 4px 14px rgba(217,119,6,0.3);}
+.stab.active-am .stab-icon{background:rgba(255,255,255,0.22);}
+.stab.active-vi{background:var(--vi-600);color:white;border-color:var(--vi-600);box-shadow:0 4px 14px rgba(124,58,237,0.3);}
+.stab.active-vi .stab-icon{background:rgba(255,255,255,0.22);}
+.stab.active-cy{background:var(--cy-600);color:white;border-color:var(--cy-600);box-shadow:0 4px 14px rgba(8,145,178,0.3);}
+.stab.active-cy .stab-icon{background:rgba(255,255,255,0.22);}
+/* skill panels */
+.skill-panel{display:none;}
+.skill-panel.active{display:block;animation:fiu 0.28s ease;}
+.skill-card{background:white;border-radius:var(--r);padding:2rem;border:1px solid var(--gray-100);max-width:640px;margin:0 auto;box-shadow:var(--sh-sm);}
+.scard-top{display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;}
+.scard-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.sc-ind{background:var(--ind-50);}
+.sc-em{background:var(--em-50);}
+.sc-am{background:var(--am-50);}
+.sc-vi{background:var(--vi-50);}
+.sc-cy{background:var(--cy-50);}
+.skill-card h3{font-size:0.95rem;font-weight:700;color:var(--gray-800);}
+.srow{margin-bottom:0.95rem;}
+.srow:last-child{margin-bottom:0;}
+.srow-top{display:flex;justify-content:space-between;margin-bottom:0.3rem;}
+.srow-name{font-size:0.82rem;font-weight:500;color:var(--gray-700);}
+.srow-pct{font-size:0.75rem;font-weight:700;}
+.sbar{height:5px;background:var(--gray-100);border-radius:3px;overflow:hidden;}
+.sfill{height:100%;border-radius:3px;width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);}
+.sf-ind{background:linear-gradient(90deg,var(--ind-400),var(--ind-600));}
+.sf-em{background:linear-gradient(90deg,var(--em-400),var(--em-600));}
+.sf-am{background:linear-gradient(90deg,var(--am-400),var(--am-600));}
+.sf-vi{background:linear-gradient(90deg,var(--vi-400),var(--vi-600));}
+.sf-cy{background:linear-gradient(90deg,var(--cy-400),var(--cy-600));}
+
+/* ══ PORTFOLIO ══ */
+#portfolio{background:linear-gradient(135deg,var(--em-50),var(--cy-50));}
+
+/* ── carousel wrap ── */
+.p-carousel-wrap{position:relative;}
+.p-carousel{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0.5rem 0.25rem 1.4rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;}
+.p-carousel:active{cursor:grabbing;}
+.p-carousel::-webkit-scrollbar{display:none;}
+/* arrow buttons */
+.p-arrow{position:absolute;top:50%;transform:translateY(-60%);width:40px;height:40px;border-radius:50%;background:white;border:1.5px solid var(--gray-200);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);z-index:10;transition:all 0.2s;font-size:1rem;color:var(--gray-600);}
+.p-arrow:hover{background:var(--ind-600);color:white;border-color:var(--ind-600);transform:translateY(-60%) scale(1.07);}
+.p-arrow.left{left:-18px;}
+.p-arrow.right{right:-18px;}
+/* fade edges */
+.p-carousel-wrap::before,.p-carousel-wrap::after{content:'';position:absolute;top:0;bottom:1.4rem;width:48px;z-index:5;pointer-events:none;}
+.p-carousel-wrap::before{left:0;background:linear-gradient(to right,var(--em-50),transparent);}
+.p-carousel-wrap::after{right:0;background:linear-gradient(to left,var(--cy-50),transparent);}
+/* scroll indicator dots */
+.p-dots{display:flex;justify-content:center;gap:0.45rem;margin-top:0.2rem;}
+.p-dot{width:7px;height:7px;border-radius:50%;background:var(--gray-200);transition:all 0.22s;cursor:pointer;}
+.p-dot.active{background:var(--ind-500);width:18px;border-radius:4px;}
+/* view-all bar */
+.p-viewall{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:1.6rem;}
+.p-viewall-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.62rem 1.4rem;border-radius:var(--r-full);font-size:0.82rem;font-weight:600;color:var(--ind-600);background:white;border:1.5px solid var(--ind-200);cursor:pointer;font-family:inherit;transition:all 0.22s;}
+.p-viewall-btn:hover{background:var(--ind-50);border-color:var(--ind-400);}
+.p-viewall-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.3s;}
+.p-viewall-btn.open svg{transform:rotate(180deg);}
+/* grid (hidden by default) */
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:1.8rem;display:none;}
+.pgrid.open{display:grid;animation:fiu 0.3s ease;}
+
+/* card */
+.pcard{border-radius:var(--r);overflow:hidden;border:1px solid var(--gray-100);background:white;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);cursor:pointer;scroll-snap-align:start;flex-shrink:0;width:280px;}
+.pcard:hover{transform:translateY(-7px);box-shadow:var(--sh-xl);}
+/* in grid mode, stretch full width */
+.pgrid .pcard{width:auto;flex-shrink:1;}
+.pthumb{height:170px;position:relative;overflow:hidden;}
+.ptinner{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:2.2rem;transition:transform 0.4s;}
+.pcard:hover .ptinner{transform:scale(1.06);}
+.poverlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.28s;}
+.pcard:hover .poverlay{opacity:1;}
+.pbody{padding:1.2rem;}
+.pbody h3{font-size:0.9rem;font-weight:700;color:var(--gray-900);margin-bottom:0.38rem;line-height:1.3;}
+.pbody p{font-size:0.77rem;color:var(--gray-500);line-height:1.6;margin-bottom:0.8rem;}
+.ptags{display:flex;gap:0.32rem;flex-wrap:wrap;}
+.ptag{font-size:0.64rem;font-weight:600;background:var(--gray-50);color:var(--gray-600);padding:0.15rem 0.5rem;border-radius:var(--r-full);border:1px solid var(--gray-200);}
+
+/* ══ LICENSES ══ */
+#licenses{background:white;}
+.lic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.3rem;}
+.lic-card{background:white;border-radius:var(--r);padding:1.5rem;border:1px solid var(--gray-100);display:flex;gap:1rem;align-items:flex-start;transition:all 0.3s;position:relative;overflow:hidden;}
+.lic-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.lc-ind::after{background:linear-gradient(90deg,var(--ind-400),var(--ind-600));}
+.lc-em::after{background:linear-gradient(90deg,var(--em-400),var(--em-600));}
+.lc-am::after{background:linear-gradient(90deg,var(--am-400),var(--am-600));}
+.lc-ro::after{background:linear-gradient(90deg,var(--ro-400),var(--ro-600));}
+.lc-vi::after{background:linear-gradient(90deg,var(--vi-400),var(--vi-600));}
+.lc-cy::after{background:linear-gradient(90deg,var(--cy-400),var(--cy-600));}
+.lic-card:hover::after{transform:scaleX(1);}
+.lic-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg);}
+.lic-icon{width:48px;height:48px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0;}
+.lic-issuer{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.26rem;}
+.lic-name{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:700;color:var(--gray-900);margin-bottom:0.2rem;line-height:1.3;}
+.lic-meta{font-size:0.7rem;color:var(--gray-400);margin-bottom:0.4rem;}
+.lic-id{display:inline-block;background:var(--gray-50);border:1px solid var(--gray-200);font-size:0.64rem;font-weight:600;color:var(--gray-500);padding:0.1rem 0.52rem;border-radius:var(--r-full);}
+.lic-link{display:inline-flex;align-items:center;gap:0.26rem;font-size:0.71rem;font-weight:600;text-decoration:none;margin-top:0.4rem;transition:gap 0.18s;cursor:pointer;}
+.lic-link:hover{gap:0.44rem;}
+
+/* ══ CREDENTIAL MODAL ══ */
+.credential-modal{position:fixed;inset:0;z-index:800;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;}
+.credential-modal.open{opacity:1;pointer-events:all;}
+.credential-content{background:white;border-radius:16px;max-width:900px;max-height:85vh;overflow-y:auto;box-shadow:0 40px 100px rgba(0,0,0,0.4);display:flex;flex-direction:column;}
+.credential-header{display:flex;align-items:center;justify-content:space-between;padding:1.8rem 2rem;border-bottom:1px solid var(--gray-100);flex-shrink:0;}
+.credential-header h3{font-size:1.4rem;font-weight:700;color:var(--gray-900);margin:0;font-family:'Playfair Display',serif;}
+.credential-close{background:none;border:none;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gray-600);transition:color 0.2s;}
+.credential-close:hover{color:var(--ind-600);}
+.credential-body{flex:1;padding:2rem;overflow-y:auto;display:flex;align-items:center;justify-content:center;min-height:400px;}
+.credential-image{max-width:100%;max-height:600px;object-fit:contain;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.1);}
+.credential-pdf{width:100%;height:600px;border:none;border-radius:12px;}
+.credential-footer{padding:1.5rem 2rem;border-top:1px solid var(--gray-100);text-align:center;font-size:0.85rem;color:var(--gray-600);flex-shrink:0;}
+
+/* ══ HONORS ══ */
+#honors{background:linear-gradient(135deg,var(--am-50),var(--ro-50));}
+.honors-timeline{position:relative;max-width:880px;margin:0 auto;}
+.honors-timeline::before{content:'';position:absolute;left:26px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--ind-200),var(--am-200),var(--ro-200));border-radius:1px;}
+.honor-item{display:flex;gap:1.3rem;padding-bottom:2.1rem;}
+.honor-item:last-child{padding-bottom:0;}
+.honor-dot-wrap{flex-shrink:0;width:54px;display:flex;justify-content:center;}
+.honor-dot{width:52px;height:52px;border-radius:50%;background:white;border:2px solid var(--gray-200);display:flex;align-items:center;justify-content:center;font-size:1.25rem;box-shadow:var(--sh-sm);transition:all 0.28s;}
+.honor-item:hover .honor-dot{border-color:var(--ind-400);transform:scale(1.08);}
+.honor-content{background:white;border:1px solid var(--gray-100);border-radius:var(--r);padding:1.35rem 1.55rem;flex:1;transition:all 0.28s;}
+.honor-item:hover .honor-content{border-color:var(--ind-200);box-shadow:var(--sh-md);transform:translateX(4px);}
+.honor-year{display:inline-block;font-size:0.66rem;font-weight:700;padding:0.18rem 0.62rem;border-radius:var(--r-full);margin-bottom:0.48rem;}
+.honor-title{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:700;color:var(--gray-900);margin-bottom:0.2rem;line-height:1.3;}
+.honor-org{font-size:0.79rem;color:var(--gray-500);margin-bottom:0.42rem;}
+.honor-desc{font-size:0.82rem;color:var(--gray-600);line-height:1.62;}
+.honor-badge{display:inline-flex;align-items:center;gap:0.32rem;font-size:0.66rem;font-weight:700;padding:0.16rem 0.62rem;border-radius:var(--r-full);margin-top:0.55rem;}
+/* Honor photos strip */
+.honor-photos{display:flex;gap:0.45rem;flex-wrap:wrap;margin-top:0.85rem;padding-top:0.85rem;border-top:1px solid var(--gray-100);}
+.honor-photo{width:76px;height:60px;border-radius:8px;overflow:hidden;cursor:pointer;border:1px solid var(--gray-200);transition:all 0.2s;background:var(--gray-50);flex-shrink:0;}
+.honor-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.28s;}
+.honor-photo:hover img{transform:scale(1.1);}
+.honor-photo:hover{box-shadow:var(--sh-md);border-color:var(--ind-300,#a5b4fc);}
+.honor-photo-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:1.1rem;color:var(--gray-300);border:2px dashed var(--gray-200);background:white;}
+.honor-photo-empty span{font-size:0.55rem;color:var(--gray-400);margin-top:0.1rem;}
+.honor-photo-empty:hover{border-color:var(--ind-300,#a5b4fc);color:var(--ind-400);}
+.honor-photos-tip{font-size:0.68rem;color:var(--gray-400);margin-top:0.45rem;width:100%;}
+
+/* ══ ACHIEVEMENTS ══ */
+#achievements{background:white;}
+.ach-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin-bottom:3.2rem;}
+.ach-stat{border-radius:var(--r);padding:1.5rem;text-align:center;transition:all 0.28s;border:1px solid transparent;}
+.ach-stat:hover{transform:translateY(-4px);box-shadow:var(--sh-lg);}
+.as-ind{background:var(--ind-50);border-color:var(--ind-100);}
+.as-em{background:var(--em-50);border-color:var(--em-100);}
+.as-am{background:var(--am-50);border-color:var(--am-100);}
+.as-ro{background:var(--ro-50);border-color:var(--ro-100);}
+.ach-stat-num{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;letter-spacing:-0.02em;line-height:1;}
+.ach-stat-num span{font-size:1.35rem;}
+.ach-stat-label{font-size:0.74rem;font-weight:500;margin-top:0.32rem;}
+/* ach carousel */
+.ach-carousel-wrap{position:relative;}
+.ach-carousel{display:flex;gap:1.2rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0.5rem 0.25rem 1.4rem;scrollbar-width:none;-ms-overflow-style:none;cursor:grab;}
+.ach-carousel:active{cursor:grabbing;}
+.ach-carousel::-webkit-scrollbar{display:none;}
+.ach-arrow{position:absolute;top:50%;transform:translateY(-60%);width:40px;height:40px;border-radius:50%;background:white;border:1.5px solid var(--gray-200);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-md);z-index:10;transition:all 0.2s;font-size:1rem;color:var(--gray-600);}
+.ach-arrow:hover{background:var(--vi-600);color:white;border-color:var(--vi-600);transform:translateY(-60%) scale(1.07);}
+.ach-arrow.left{left:-18px;}
+.ach-arrow.right{right:-18px;}
+.ach-carousel-wrap::before,.ach-carousel-wrap::after{content:'';position:absolute;top:0;bottom:1.4rem;width:48px;z-index:5;pointer-events:none;}
+.ach-carousel-wrap::before{left:0;background:linear-gradient(to right,white,transparent);}
+.ach-carousel-wrap::after{right:0;background:linear-gradient(to left,white,transparent);}
+.ach-dots{display:flex;justify-content:center;gap:0.45rem;margin-top:0.2rem;}
+.ach-dot{width:7px;height:7px;border-radius:50%;background:var(--gray-200);transition:all 0.22s;cursor:pointer;}
+.ach-dot.active{background:var(--vi-500,#8b5cf6);width:18px;border-radius:4px;}
+.ach-viewall{display:flex;align-items:center;justify-content:center;margin-top:1.6rem;}
+.ach-viewall-btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.62rem 1.4rem;border-radius:var(--r-full);font-size:0.82rem;font-weight:600;color:var(--vi-600);background:white;border:1.5px solid var(--vi-200);cursor:pointer;font-family:inherit;transition:all 0.22s;}
+.ach-viewall-btn:hover{background:var(--vi-50);border-color:var(--vi-400);}
+.ach-viewall-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.3s;}
+.ach-viewall-btn.open svg:last-child{transform:rotate(180deg);}
+.ach-grid{display:none;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.3rem;margin-top:1.8rem;}
+.ach-grid.open{display:grid;animation:fiu 0.3s ease;}
+.ach-card{background:white;border-radius:var(--r);padding:1.6rem;border:1px solid var(--gray-100);transition:all 0.28s;}
+.ach-card:hover{transform:translateY(-5px);box-shadow:var(--sh-lg);}
+.ach-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.85rem;}
+.ach-icon{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;}
+.ach-level{font-size:0.64rem;font-weight:700;padding:0.2rem 0.62rem;border-radius:var(--r-full);letter-spacing:0.06em;}
+.lv-gold{background:#fef9c3;color:#854d0e;border:1px solid #fde047;}
+.lv-silver{background:#f1f5f9;color:#475569;border:1px solid #cbd5e1;}
+.lv-bronze{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa;}
+.lv-ind{background:var(--ind-50);color:var(--ind-700);border:1px solid var(--ind-200);}
+.lv-em{background:var(--em-50);color:var(--em-700);border:1px solid var(--em-100);}
+.ach-card h3{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700;color:var(--gray-900);margin-bottom:0.26rem;line-height:1.3;}
+.ach-card p{font-size:0.8rem;color:var(--gray-500);line-height:1.6;margin-bottom:0.75rem;}
+.ach-meta{display:flex;justify-content:space-between;margin-bottom:0.75rem;}
+.ach-year,.ach-org{font-size:0.69rem;color:var(--gray-400);}
+/* Achievement photos */
+.ach-photos{display:flex;gap:0.4rem;flex-wrap:wrap;padding-top:0.75rem;border-top:1px solid var(--gray-100);}
+.ach-photo{width:62px;height:50px;border-radius:7px;overflow:hidden;cursor:pointer;border:1px solid var(--gray-200);transition:all 0.2s;background:var(--gray-50);}
+.ach-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.28s;}
+.ach-photo:hover img{transform:scale(1.1);}
+.ach-photo:hover{box-shadow:var(--sh-md);border-color:var(--ind-300,#a5b4fc);}
+.ach-photo-empty{display:flex;align-items:center;justify-content:center;font-size:0.95rem;color:var(--gray-300);border:2px dashed var(--gray-200);background:white;}
+.ach-photo-empty:hover{border-color:var(--ind-300,#a5b4fc);color:var(--ind-400);}
+
+/* ══ CV BANNER ══ */
+.cv-sec{background:linear-gradient(135deg,var(--ind-600),var(--vi-600));padding:4.5rem 5%;text-align:center;position:relative;overflow:hidden;}
+.cv-sec::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 38px,rgba(255,255,255,0.03) 38px,rgba(255,255,255,0.03) 76px);}
+.cv-inner{position:relative;z-index:1;}
+.cv-sec h2{font-family:'Playfair Display',serif;font-size:2rem;color:white;margin-bottom:0.85rem;letter-spacing:-0.02em;}
+.cv-sec p{color:rgba(255,255,255,0.75);font-size:0.95rem;margin-bottom:1.7rem;}
+
+/* ══ CONTACT ══ */
+#contact{background:linear-gradient(135deg,var(--cy-50),var(--ind-50));}
+.contact-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:4.5rem;}
+.cinfo h3{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gray-900);margin-bottom:0.85rem;}
+.cinfo p{font-size:0.91rem;color:var(--gray-500);line-height:1.75;margin-bottom:1.7rem;}
+.citems{display:flex;flex-direction:column;gap:0.72rem;}
+.citem{display:flex;align-items:center;gap:0.9rem;padding:0.9rem 1rem;background:white;border-radius:var(--r-sm);border:1px solid var(--gray-100);text-decoration:none;color:var(--gray-700);transition:all 0.2s;}
+.citem:hover{box-shadow:var(--sh-md);transform:translateX(3px);}
+.cicon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.95rem;}
+.citem-info strong{font-size:0.68rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:0.06rem;}
+.citem-info span{font-size:0.84rem;font-weight:500;color:var(--gray-700);}
+.cform{background:white;border:1px solid var(--gray-100);border-radius:var(--r);padding:2rem;box-shadow:var(--sh-sm);}
+.cform h3{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gray-900);margin-bottom:1.3rem;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
+.fg{margin-bottom:0.95rem;}
+.fg label{font-size:0.72rem;font-weight:600;color:var(--gray-600);display:block;margin-bottom:0.38rem;letter-spacing:0.04em;}
+.fg input,.fg textarea,.fg select{width:100%;padding:0.72rem 0.92rem;background:var(--bg);border:1.5px solid var(--gray-200);border-radius:var(--r-sm);color:var(--gray-800);font-family:inherit;font-size:0.87rem;outline:none;transition:all 0.2s;resize:none;-webkit-appearance:none;}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--ind-400);box-shadow:0 0 0 3px var(--ind-100);background:white;}
+.fg textarea{min-height:110px;}
+.fsub{width:100%;}
+
+/* FOOTER */
+footer{background:var(--gray-900);color:var(--gray-400);padding:2.2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.flogo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:white;}
+.flogo span{color:var(--ind-400);}
+footer p{font-size:0.76rem;}
+.flinks{display:flex;gap:1.3rem;}
+.flinks a{font-size:0.74rem;color:var(--gray-400);text-decoration:none;transition:color 0.2s;}
+.flinks a:hover{color:var(--ind-400);}
+
+/* ══ PORTFOLIO MODAL ══ */
+.modal-overlay{position:fixed;inset:0;z-index:800;background:rgba(17,24,39,0.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.24s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:white;border-radius:20px;width:100%;max-width:660px;max-height:88vh;overflow-y:auto;box-shadow:0 40px 100px rgba(0,0,0,0.22);transform:translateY(18px);transition:transform 0.3s;position:relative;}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal-close{position:sticky;top:1rem;float:right;margin:1rem 1rem 0 0;width:32px;height:32px;border-radius:50%;background:var(--gray-100);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--gray-600);transition:all 0.18s;z-index:2;}
+.modal-close:hover{background:var(--gray-200);}
+.modal-body{padding:1.6rem 1.9rem 2rem;clear:both;}
+.modal-thumb{width:100%;aspect-ratio:16/9;border-radius:11px;overflow:hidden;margin-bottom:1.4rem;display:flex;align-items:center;justify-content:center;font-size:3.8rem;}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--gray-900);margin:0.5rem 0 0.35rem;line-height:1.25;}
+.modal-org{font-size:0.83rem;color:var(--gray-400);margin-bottom:1rem;}
+.modal-desc{font-size:0.9rem;color:var(--gray-600);line-height:1.8;margin-bottom:1.3rem;}
+.modal-section-title{font-size:0.72rem;font-weight:700;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:0.55rem;}
+.modal-bullets{list-style:none;margin-bottom:1.3rem;}
+.modal-bullets li{display:flex;gap:0.65rem;font-size:0.85rem;color:var(--gray-600);line-height:1.65;padding:0.46rem 0;border-bottom:1px solid var(--gray-100);}
+.modal-bullets li::before{content:'';width:5px;height:5px;background:var(--ind-500);border-radius:50%;flex-shrink:0;margin-top:0.54rem;}
+.modal-tags{display:flex;gap:0.38rem;flex-wrap:wrap;margin-bottom:1.4rem;}
+.modal-actions{display:flex;gap:0.75rem;flex-wrap:wrap;}
+
+/* ══ LIGHTBOX ══ */
+.lightbox{position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lightbox img{max-width:88vw;max-height:84vh;object-fit:contain;border-radius:8px;}
+.lightbox-close{position:absolute;top:1.4rem;right:1.4rem;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.14);border:none;cursor:pointer;color:white;font-size:1.2rem;display:flex;align-items:center;justify-content:center;transition:background 0.18s;}
+.lightbox-close:hover{background:rgba(255,255,255,0.28);}
+
+/* ══ PROJECT GALLERY ══ */
+.gallery-modal{position:fixed;inset:0;z-index:850;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.24s;}
+.gallery-modal.open{opacity:1;pointer-events:all;}
+.gallery-content{background:white;border-radius:16px;width:100%;max-width:800px;max-height:80vh;overflow-y:auto;box-shadow:0 30px 80px rgba(0,0,0,0.3);}
+.gallery-header{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2rem;border-bottom:1px solid var(--gray-100);}
+.gallery-header h3{font-size:1.3rem;font-weight:700;color:var(--gray-900);margin:0;font-family:'Playfair Display',serif;}
+.gallery-close{background:none;border:none;cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--gray-600);transition:color 0.2s;}
+.gallery-close:hover{color:var(--ind-600);}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;padding:1.5rem 2rem;}
+.gallery-item{aspect-ratio:4/3;border-radius:10px;overflow:hidden;cursor:pointer;position:relative;border:1.5px solid var(--gray-200);transition:all 0.22s;background:var(--gray-50);}
+.gallery-item:hover{border-color:var(--ind-400);box-shadow:0 8px 20px rgba(99,102,241,0.15);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
+.gallery-item:hover img{transform:scale(1.05);}
+.gallery-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,0.75),transparent);color:white;padding:0.8rem 0.6rem;font-size:0.75rem;font-weight:500;text-align:center;line-height:1.3;}
+.gallery-web-link{display:flex;align-items:center;justify-content:center;gap:1rem;padding:1.2rem 2rem;border-bottom:1px solid var(--gray-100);background:linear-gradient(135deg,var(--cy-50),var(--cy-100));}
+.web-link-label{font-size:0.85rem;font-weight:600;color:var(--cy-700);letter-spacing:0.02em;}
+.web-link-button{display:inline-flex;align-items:center;gap:0.4rem;padding:0.6rem 1.2rem;background:var(--cy-600);color:white;border:none;border-radius:8px;text-decoration:none;font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.22s;box-shadow:0 4px 12px rgba(8,145,178,0.3);}
+.web-link-button:hover{background:var(--cy-700);transform:translateY(-2px);box-shadow:0 6px 16px rgba(8,145,178,0.4);}
+
+/* ══ GALLERY LIGHTBOX ══ */
+.gallery-lightbox{position:fixed;inset:0;z-index:860;background:rgba(0,0,0,0.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.2s;}
+.gallery-lightbox.open{opacity:1;pointer-events:all;}
+.gallery-lightbox-content{display:flex;flex-direction:column;align-items:center;gap:1.5rem;max-width:90vw;max-height:90vh;}
+.gallery-lightbox-image{max-width:100%;max-height:75vh;object-fit:contain;border-radius:12px;}
+.gallery-lightbox-caption{color:white;font-size:1.1rem;text-align:center;font-weight:500;}
+.gallery-lightbox-close{position:absolute;top:1.5rem;right:1.5rem;width:40px;height:40px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;cursor:pointer;color:white;font-size:1.6rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.gallery-lightbox-close:hover{background:rgba(255,255,255,0.3);}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  .hero-inner,.about-layout{grid-template-columns:1fr;}
+  .hero-card-wrap{display:none;}
+  .exp-layout{grid-template-columns:1fr;}
+  .exp-nav{position:static;display:flex;overflow-x:auto;gap:0.4rem;padding-bottom:0.5rem;}
+  .enav-item{min-width:145px;}
+  .pcard{width:240px;}
+  .pgrid.open{grid-template-columns:1fr 1fr;}
+  .contact-layout{grid-template-columns:1fr;}
+  .frow{grid-template-columns:1fr;}
+  .ach-stats{grid-template-columns:repeat(2,1fr);}
+  .stab{padding:0.45rem 0.9rem;font-size:0.74rem;}
+  .honors-timeline::before{left:22px;}
+  .honor-dot-wrap{width:46px;}
+  .honor-dot{width:44px;height:44px;font-size:1.05rem;}
+}
+@media(max-width:600px){
+  .pcard{width:210px;}
+  .pgrid.open{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  body{cursor:auto;}
+  .cursor,.cursor-ring{display:none;}
+  .ach-stats{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div id="pbar"></div>
+<button id="btop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#home">Portfolio<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#licenses">Licenses</a></li>
+    <li><a href="#honors">Honors</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="home">
+  <div class="hbg"></div>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hbadge sr"><span class="bdot"></span>Available for Collaboration</div>
+      <h1 class="hero-name sr d1">Halo, Me<br><span class="ital">Rizka Ayu Ramadhani</span></h1>
+      <p class="hero-role sr d2"><strong>Undergraduate Data Science</strong> &amp; Data Enthusiast · Surabaya, Indonesia</p>
+      <p class="hero-desc sr d3">A Data Science undergraduate passionate about transforming data into meaningful insights through analytics, data science, and data engineering.</p>
+      <div class="hero-actions sr d4">
+        <a href="#portfolio" class="btn btn-ind">View Portfolio →</a>
+        <a href="#contact" class="btn btn-out">Contact Me</a>
+      </div>
+      <div class="hstats sr">
+        <div><div class="hs-num">4<span>+</span></div><div class="hs-lbl">Experiences</div></div>
+        <div><div class="hs-num">10<span>+</span></div><div class="hs-lbl">Projects</div></div>
+      </div>
+    </div>
+    <div class="hero-card-wrap sr">
+      <div class="hfloat hf1"><div style="width:30px;height:30px;border-radius:8px;background:var(--ind-50);display:flex;align-items:center;justify-content:center;font-size:.9rem">⭐</div><div><strong style="font-size:.75rem;display:block;color:var(--gray-800)">Top Rated</strong><span style="font-size:.66rem;color:var(--gray-400)">Data Enthusiast</span></div></div>
+      <div class="hcard">
+        <div class="hphoto"><img src="foto.jpeg" alt="Rizka Ayu Ramadhani"></div>
+        <div class="hcard-info">
+          <div class="hci-name">Rizka Ayu Ramadhani</div>
+          <div class="hci-role">Data Enthusiast · Surabaya</div>
+          <div class="hci-tags"><span class="htag">Python</span><span class="htag">Looker Studio</span><span class="htag">QGIS</span><span class="htag">Figma</span></div>
+        </div>
+      </div>
+      <div class="hfloat hf2"><div style="width:30px;height:30px;border-radius:8px;background:var(--em-50);display:flex;align-items:center;justify-content:center;font-size:.9rem">✅</div><div><strong style="font-size:.75rem;display:block;color:var(--gray-800)">10+ Projects</strong><span style="font-size:.66rem;color:var(--gray-400)">Completed</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-em">About Me</div>
+      <h2 class="sec-title">Get to know me <em>better</em></h2>
+      <p class="sec-sub">Data Science student with a strong interest in analytics and problem-solving through data</p>
+    </div>
+    <div class="about-layout">
+      <div class="aimg-wrap sr"><div class="aimg"><img src="foto2.jpeg" alt="Rizka"></div><div class="abadge"><div class="num">3+</div><div class="lbl">Academic Journey</div></div></div>
+      <div class="sr d2">
+        <div class="about-text">
+          <p>Hello! I am <strong>Rizka Ayu Ramadhani</strong>, a Data Science undergraduate in Surabaya. I believe data is more than numbers — it's a resource for understanding patterns, supporting decisions, and solving problems in a structured way.</p>
+          <p>My journey covers data analysis, statistics, and modeling, expanding into machine learning and data engineering. I am committed to transforming raw data into meaningful insights.</p>
+          <p>Beyond academics, I actively work on data-driven projects and take on real-world roles to strengthen practical experience.</p>
+        </div>
+        <div class="agrid">
+          <div class="aitem"><div class="aitem-lbl">Name</div><div class="aitem-val">Rizka Ayu Ramadhani</div></div>
+          <div class="aitem"><div class="aitem-lbl">Location</div><div class="aitem-val">Surabaya, Indonesia</div></div>
+          <div class="aitem"><div class="aitem-lbl">Email</div><div class="aitem-val">riskarmdhni6@gmail.com</div></div>
+          <div class="aitem"><div class="aitem-lbl">Status</div><div class="aitem-val">Open for Collaboration ✓</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section id="education" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-ind">Education</div>
+      <h2 class="sec-title">Educational <em>Background</em></h2>
+    </div>
+    <h3 class="sr" style="font-size:1rem;font-weight:700;color:var(--gray-600);margin-bottom:1.1rem;text-align:center;letter-spacing:.04em;text-transform:uppercase;font-size:.78rem">Formal Education</h3>
+    <div class="edu-grid sr" style="margin-bottom:2.4rem;">
+      <div class="edu-card ec-ind"><div class="edu-year" style="color:var(--ind-600)">2023 — Now</div><h3>S1 Data Science</h3><div class="edu-inst">State University of Surabaya · GPA 3.78/4.00</div></div>
+      <div class="edu-card ec-em"><div class="edu-year" style="color:var(--em-600)">2020 — 2023</div><h3>Natural Sciences</h3><div class="edu-inst">SMA Negeri 1 Kandangan · Kediri · GPA 89/100</div></div>
+    </div>
+    <h3 class="sr" style="font-size:.78rem;font-weight:700;color:var(--gray-600);margin-bottom:1.1rem;text-align:center;letter-spacing:.04em;text-transform:uppercase">Non-Formal Education</h3>
+    <div class="edu-grid sr">
+      <div class="edu-card ec-am"><div class="edu-year" style="color:var(--am-600)">2026</div><h3>Introduction to Artificial Intelligence</h3><div class="edu-inst">Dicoding Academy Indonesia · Online</div></div>
+      <div class="edu-card ec-vi"><div class="edu-year" style="color:var(--vi-600)">2026</div><h3>Prompt Engineering for Software Developers</h3><div class="edu-inst">Dicoding Academy Indonesia · Online</div></div>
+      <div class="edu-card ec-cy"><div class="edu-year" style="color:var(--cy-600)">2026</div><h3>Data Science Fundamentals</h3><div class="edu-inst">Dicoding Academy Indonesia · Online</div></div>
+      <div class="edu-card ec-ro"><div class="edu-year" style="color:var(--ro-600)">2026</div><h3>Getting Started with Python Programming</h3><div class="edu-inst">Dicoding Academy Indonesia · Online</div></div>
+      <div class="edu-card ec-ind"><div class="edu-year" style="color:var(--ind-600)">2026</div><h3>Job Roles in the Cloud</h3><div class="edu-inst">AWS Training & Certification · Online</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<section id="experience" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-vi">Experience</div>
+      <h2 class="sec-title"><em>Career Journey</em></h2>
+    </div>
+
+    <!-- TOGGLE BUTTONS -->
+    <div class="exp-toggle-wrap sr">
+      <div class="exp-toggle">
+        <button class="exp-toggle-btn active" onclick="switchExpType('work',this)">
+          <span class="etb-icon">💼</span> Work Experience
+        </button>
+        <button class="exp-toggle-btn" onclick="switchExpType('org',this)">
+          <span class="etb-icon">🤝</span> Organisation
+        </button>
+      </div>
+    </div>
+
+    <!-- WORK PANEL -->
+    <div class="exp-panel active" id="exp-panel-work">
+    <div class="exp-layout">
+      <div class="exp-nav" id="enav-work">
+        <div class="enav-item active" onclick="switchExp(this,'exp1','enav-work','econtent-work')"><div class="enav-period">Jan 2026 — Now</div><div class="enav-company">PT Funpay Digital Solusindo</div><div class="enav-role">Data Analyst / Data Science Support Internship</div></div>
+        <div class="enav-item" onclick="switchExp(this,'exp2','enav-work','econtent-work')"><div class="enav-period">Feb 2025 — Now</div><div class="enav-company">LPPM State University of Surabaya</div><div class="enav-role">Research Assistant</div></div>
+        <div class="enav-item" onclick="switchExp(this,'exp3','enav-work','econtent-work')"><div class="enav-period">Jul — Des 2025</div><div class="enav-company">Badan Pusat Statistik Surabaya</div><div class="enav-role">Data Statistic &amp; Analyst Internship</div></div>
+        <div class="enav-item" onclick="switchExp(this,'exp4','enav-work','econtent-work')"><div class="enav-period">Aug — Okt 2025</div><div class="enav-company">Badan Pusat Statistik Surabaya</div><div class="enav-role">Geospatial Data Analyst Officer</div></div>
+      </div>
+      <div class="exp-content" id="econtent-work">
+
+        <div class="exp-item active" id="exp1">
+          <div class="eheader eh-ind"><span class="eperiod ep-ind">Jan 2026 — Now</span><div class="etitle">Data Analyst / Data Science Support</div><div class="ecompany">PT Funpay Digital Solusindo · Gresik · Full-time Internship</div></div>
+          <ul class="ebullets">
+            <li>Processed and analyzed multi-sheet transactional datasets (TRX, COM, SAL, EST LR IM3, PRIM, SEC DSE) to extract operational and financial insights.</li>
+            <li>Developed a data-driven financial monitoring and KPI tracking system to support performance evaluation and decision-making.</li>
+            <li>Built and deployed an interactive dashboard using Streamlit to visualize transaction trends, revenue performance, and key operational metrics.</li>
+            <li>Conducted exploratory data analysis (EDA) to identify trends, anomalies, and performance patterns across multiple business categories.</li>
+            <li>IImplemented financial calculation logic and basic forecasting models to support revenue projection and planning.</li>
+            <li>Collaborated directly with operational teams on-site to validate data accuracy and ensure alignment between analytical outputs and business needs.</li>
+          </ul>
+          <div class="etechs"><span class="etag">Streamlit</span><span class="etag">Python</span><span class="etag">Design System</span><span class="etag">Forecasting</span><span class="etag">Data Visualization</span><span class="etag">Prototyping</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="funpay1.jpeg"></div>
+                <div class="exp-photo-caption">Forecasting System Development</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="funpay2.jpeg"></div>
+                <div class="exp-photo-caption">Initial Data Understanding &amp; Exploration</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="funpay3.png"></div>
+                <div class="exp-photo-caption">Forecasting System Documentation (Sample)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" id="exp2">
+          <div class="eheader eh-em"><span class="eperiod ep-em">Feb 2025 — Now</span><div class="etitle">Research Assistant Lecture</div><div class="ecompany">LPPM State University of Surabaya · Contract</div></div>
+          <ul class="ebullets">
+            <li>Guided 2 students under Lembaga Penelitian dan Pengabdian kepada Masyarakat (LPPM) in a research project titled "Flood Prediction in Surabaya Using the LSTM Method.</li>
+            <li>Directed data collection and preprocessing of historical rainfall and flood time series data in Surabaya, including cleaning, normalization, and sequence preparation for modeling.</li>
+            <li>Designed and implemented an LSTM-based time series forecasting model to predict flood occurrences, including basic hyperparameter tuning and performance evaluation (MAE, RMSE).</li>
+            <li>Provided mentorship in research methodology, model interpretation, and scientific writing to ensure structured analysis and clear research reporting.</li>
+          </ul>
+          <div class="etechs"><span class="etag">Future Engineering</span><span class="etag">Time Series</span><span class="etag">Machine Learning</span><span class="etag">Data Preprocessing</span><span class="etag">Data Visualization</span><span class="etag">Model Evaluation</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="lppm.jpeg"></div>
+                <div class="exp-photo-caption">Data Colecting in BPBD Surabaya</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" id="exp3">
+          <div class="eheader eh-am"><span class="eperiod ep-am">Jul — Des 2025</span><div class="etitle">Data Statistic &amp; Analyst</div><div class="ecompany">Badan Pusat Statistik Surabaya · Full-time Internship</div></div>
+          <ul class="ebullets">
+            <li>Delivered statistical information services through Pojok Statistik, supporting data dissemination and responding to public and institutional data requests.</li>
+            <li>Assisted in Sectoral Statistics Development activities by coordinating statistical data needs and ensuring alignment with official data standards.</li>
+            <li>Interpreted and explained official statistical datasets to diverse stakeholders, translating quantitative data into clear and actionable insights</li>
+            <li>Performed basic data validation and descriptive analysis to ensure accuracy, consistency, and reliability of published statistical information.</li>
+            <li>Supported front office (Lobby) operations by facilitating data access services, strengthening communication skills and public service orientation.</li>
+          </ul>
+          <div class="etechs"><span class="etag">Statistics</span><span class="etag">Data Validation</span><span class="etag">Branding and Design</span><span class="etag">Web Design</span><span class="etag">Flutter</span><span class="etag">Analysist</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="bps1.jpeg"></div>
+                <div class="exp-photo-caption">Intern – BPS Surabaya (Statistics Indonesia)</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="bps2.jpeg"></div>
+                <div class="exp-photo-caption">Internship Final Presentation Documentation</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="bps3.jpeg"></div>
+                <div class="exp-photo-caption">Front Office Operations</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="bps4.jpeg"></div>
+                <div class="exp-photo-caption">Guest Reception – Building Inauguration Event &amp; Public Service</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" id="exp4">
+          <div class="eheader eh-ro"><span class="eperiod ep-ro">Aug — Okt 2025</span><div class="etitle">Geospatial Data Analyst Officer — Economic Census 2026</div><div class="ecompany">Badan Pusat Statistik Surabaya · Contract</div></div>
+          <ul class="ebullets">
+            <li>Processed and analyzed Wilkerstat (statistical working area) data using QGIS for the preparation of the 2026 Economic Census.</li>
+            <li>Conducted geospatial data verification to ensure accuracy and consistency with official mapping standards.</li>
+            <li>Collaborated with the census team to produce reliable spatial data for field operations and reporting.</li>
+          </ul>
+          <div class="etechs"><span class="etag">QGIS</span><span class="etag">Geospatial Analysis</span><span class="etag">Spatial Data</span><span class="etag">Mapping</span><span class="etag">Analytical Thinking</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="wilkerstat.jpeg"></div>
+                <div class="exp-photo-caption">Administrative Document Processing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div><!-- end exp-panel-work -->
+
+    <!-- ORGANISATION PANEL -->
+    <div class="exp-panel" id="exp-panel-org">
+    <div class="exp-layout">
+      <div class="exp-nav" id="enav-org">
+        <div class="enav-item active" onclick="switchExp(this,'org1','enav-org','econtent-org')"><div class="enav-period">Feb 2024 — Feb 2026</div><div class="enav-company">Himpunan Mahasiswa Kediri UNESA</div><div class="enav-role">Interests &amp; Talents Staff</div></div>
+        <div class="enav-item" onclick="switchExp(this,'org2','enav-org','econtent-org')"><div class="enav-period">Feb 2025 — Feb 2026</div><div class="enav-company">P2K FMIPA UNESA</div><div class="enav-role">Vice Head Media &amp; Info</div></div>
+        <div class="enav-item" onclick="switchExp(this,'org3','enav-org','econtent-org')"><div class="enav-period">Sep — Nov 2024</div><div class="enav-company">Himpunan Mahasiswa Sains Data UNESA</div><div class="enav-role">Volunteer</div></div>
+      </div>
+      <div class="exp-content" id="econtent-org">
+
+        <div class="exp-item active" id="org1">
+          <div class="eheader eh-ind"><span class="eperiod ep-ind">Feb 2024 — Feb 2026</span><div class="etitle">Interests and Talents Division Staff</div><div class="ecompany">Himpunan Mahasiswa Kediri UNESA · Kediri</div></div>
+          <ul class="ebullets">
+            <li>Volunteer – HIMAWARI Volley Competition 2023 (Event Division): Developed the match rundown, coordinated referees and participants, and ensured the competition ran smoothly and on schedule.</li>
+            <li>Committee Member – Welcome Party &amp; Gathering HIMAWARI 2024 (Decoration &amp; Documentation Division): Arranged decorations according to the event theme and managed photo–video documentation, including post-event visual concepts.</li>
+            <li>Committee Member – HIMAWARI Blood Donation 2024 (Event Division): Designed the event flow, guided activities, coordinated participants and medical staff, and assisted with registration.</li>
+            <li>Treasurer – HIMAWARI Cup 2025 (Core Committee/BPH): Managed budgeting, maintained financial records, handled operational expenses, and prepared financial accountability reports.</li>
+            <li>Committee Member – Welcome Party &amp; Gathering HIMAWARI 2025 (Logistics Division): Managed inventory, procurement, and distribution of event equipment and supplies.</li>
+          </ul>
+          <div class="etechs"><span class="etag">Event Management</span><span class="etag">Team Coordination</span><span class="etag">Budgeting&amp;Financial Reporting</span><span class="etag">Public Communication</span><span class="etag">Logistics Management</span><span class="etag">Time Management</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himawari2.jpg"></div>
+                <div class="exp-photo-caption">Certificate of Participation – Volleyball Competition</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himawari3.jpg"></div>
+                <div class="exp-photo-caption">Certificate of Participation – Welcome Party & Gathering</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himawari4.jpg"></div>
+                <div class="exp-photo-caption">Certificate of Participation – Volleyball Competition 2024</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himawari5.jpeg"></div>
+                <div class="exp-photo-caption">Active Member of the Organization</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himawari6.jpeg"></div>
+                <div class="exp-photo-caption">Volleyball Competition Activity</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" id="org2">
+          <div class="eheader eh-em"><span class="eperiod ep-em">Feb 2025 — Feb 2026</span><div class="etitle">Vice Head of Media and Information Division</div><div class="ecompany">Pusat Penguatan Karakter (P2K) FMIPA UNESA· Surabaya</div></div>
+          <ul class="ebullets">
+            <li>Coordinator of Logistics &amp; IT Division – NUDC &amp; KDMI Selection 2025, UNESA: Managed event equipment and technical support to ensure smooth execution of the selection process.</li>
+            <li>Coordinator of Publication, Documentation, and Design Division – Pilmapres FMIPA 2025: Managed promotional materials, developed event visual identity, and handled photo–video documentation for reports and social media.</li>
+            <li>Coordinator of Event Division – FMIPA UNESA Website Development Program: Organized event flow and activity structure, and coordinated technical teams and participants to ensure timely and smooth implementation.</li>
+            <li>Coordinator of Event Division – SCIENTIST NASIONAL 2025 FMIPA UNESA: Led rundown planning, coordinated across divisions, and supervised event execution according to the established timeline.</li>
+            <li>Coordinator of Publication, Documentation, and Design Division – Bela Negara Webinar: Managed event promotion, designed marketing materials, and handled visual documentation for reporting and digital media purposes.</li>
+          </ul>
+          <div class="etechs"><span class="etag">Team Leadership</span><span class="etag">Event Management</span><span class="etag">Technical &amp; IT Coordination</span><span class="etag">Media &amp; Publication Management</span><span class="etag">Logistics Management</span><span class="etag">Timeline Control</span><span class="etag">Problem Solving</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k1.jpeg"></div>
+                <div class="exp-photo-caption">Certificate of Participation – Debate Competition</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k2.png"></div>
+                <div class="exp-photo-caption">Certificate of Participation – Bela Negara Webinar</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k3.jpeg"></div>
+                <div class="exp-photo-caption">Photo Documentation – Debate Competition</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k4.jpeg"></div>
+                <div class="exp-photo-caption">Event Pamphlet Design (Sample Work 1)</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k5.jpeg"></div>
+                <div class="exp-photo-caption">Event Pamphlet Design (Sample Work 2)</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k6.jpeg"></div>
+                <div class="exp-photo-caption">Backdrop Design (Sample Work)</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="p2k6.jpg"></div>
+                <div class="exp-photo-caption">Certificate of Participation – Pilmapres</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item" id="org3">
+          <div class="eheader eh-am"><span class="eperiod ep-am">Sep — Nov 2024</span><div class="etitle">Volunteer</div><div class="ecompany">Himpunan Mahasiswa Sains Data UNESA · Surabaya</div></div>
+          <ul class="ebullets">
+            <li>Committee Member – Public Relations &amp; Sponsorship Division, RELOUD Data Science Leadership and Skills Training 2024: Managed external relations and sponsorship coordination, including communication with partners and supporting funding initiatives for the event.</li>
+          </ul>
+          <div class="etechs"><span class="etag">Public Relations</span><span class="etag">Sponsorship Coordination</span><span class="etag">Networking</span></div>
+          <div class="exp-photos-section">
+            <div class="exp-photos-label"><div class="ph-icon">📸</div>Activity Documentation</div>
+            <div class="exp-photo-grid">
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himasada.jpg"></div>
+                <div class="exp-photo-caption">Certificate of Participation as a Volunteer</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himasada2.jpeg"></div>
+                <div class="exp-photo-caption">Member of the Division</div>
+              </div>
+              <div class="exp-photo-wrapper">
+                <div class="exp-photo-item"><img src="himasada3.jpeg"></div>
+                <div class="exp-photo-caption">Post-Event Committee Evaluation Meeting</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div><!-- end exp-panel-org -->
+
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+<section id="skills" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-cy">Skills</div>
+      <h2 class="sec-title">Skills &amp; <em>Expertise</em></h2>
+    </div>
+    <!-- skill tab buttons -->
+    <div class="skill-tabs sr">
+      <button class="stab active-ind" onclick="switchSkill('s1',this,'active-ind')"><span class="stab-icon">🐍</span>Programming &amp; Dev</button>
+      <button class="stab" onclick="switchSkill('s2',this,'active-em')"><span class="stab-icon">📊</span>Data &amp; Analytics</button>
+      <button class="stab" onclick="switchSkill('s3',this,'active-am')"><span class="stab-icon">🛠️</span>Tools &amp; Database</button>
+      <button class="stab" onclick="switchSkill('s4',this,'active-vi')"><span class="stab-icon">🎨</span>Design &amp; Creative</button>
+      <button class="stab" onclick="switchSkill('s5',this,'active-cy')"><span class="stab-icon">🤝</span>Soft Skills</button>
+    </div>
+
+    <!-- skill panels -->
+    <div class="skill-panel active sr" id="s1">
+      <div class="skill-card">
+        <div class="scard-top"><div class="scard-icon sc-ind">🐍</div><h3>Programming &amp; Dev</h3></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Python</span><span class="srow-pct" style="color:var(--ind-600)">90%</span></div><div class="sbar"><div class="sfill sf-ind" data-w="90"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Streamlit</span><span class="srow-pct" style="color:var(--ind-600)">88%</span></div><div class="sbar"><div class="sfill sf-ind" data-w="88"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Google Colab</span><span class="srow-pct" style="color:var(--ind-600)">95%</span></div><div class="sbar"><div class="sfill sf-ind" data-w="95"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">R Studio</span><span class="srow-pct" style="color:var(--ind-600)">80%</span></div><div class="sbar"><div class="sfill sf-ind" data-w="80"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Flutter</span><span class="srow-pct" style="color:var(--ind-600)">80%</span></div><div class="sbar"><div class="sfill sf-ind" data-w="80"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-panel" id="s2">
+      <div class="skill-card">
+        <div class="scard-top"><div class="scard-icon sc-em">📊</div><h3>Data &amp; Analytics</h3></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Data Analysis</span><span class="srow-pct" style="color:var(--em-600)">90%</span></div><div class="sbar"><div class="sfill sf-em" data-w="90"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Machine Learning</span><span class="srow-pct" style="color:var(--em-600)">85%</span></div><div class="sbar"><div class="sfill sf-em" data-w="85"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Time Series Forecasting</span><span class="srow-pct" style="color:var(--em-600)">83%</span></div><div class="sbar"><div class="sfill sf-em" data-w="83"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Data Visualization</span><span class="srow-pct" style="color:var(--em-600)">88%</span></div><div class="sbar"><div class="sfill sf-em" data-w="88"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Data Cleaning</span><span class="srow-pct" style="color:var(--em-600)">92%</span></div><div class="sbar"><div class="sfill sf-em" data-w="92"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-panel" id="s3">
+      <div class="skill-card">
+        <div class="scard-top"><div class="scard-icon sc-am">🛠️</div><h3>Tools &amp; Database</h3></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Microsoft Excel</span><span class="srow-pct" style="color:var(--am-600)">90%</span></div><div class="sbar"><div class="sfill sf-am" data-w="90"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Looker Studio</span><span class="srow-pct" style="color:var(--am-600)">80%</span></div><div class="sbar"><div class="sfill sf-am" data-w="80"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">PostgreSQL</span><span class="srow-pct" style="color:var(--am-600)">75%</span></div><div class="sbar"><div class="sfill sf-am" data-w="75"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">GitHub</span><span class="srow-pct" style="color:var(--am-600)">80%</span></div><div class="sbar"><div class="sfill sf-am" data-w="80"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">QGIS</span><span class="srow-pct" style="color:var(--am-600)">78%</span></div><div class="sbar"><div class="sfill sf-am" data-w="78"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-panel" id="s4">
+      <div class="skill-card">
+        <div class="scard-top"><div class="scard-icon sc-vi">🎨</div><h3>Design &amp; Creative</h3></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Figma</span><span class="srow-pct" style="color:var(--vi-600)">88%</span></div><div class="sbar"><div class="sfill sf-vi" data-w="88"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Canva</span><span class="srow-pct" style="color:var(--vi-600)">95%</span></div><div class="sbar"><div class="sfill sf-vi" data-w="95"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Capcut</span><span class="srow-pct" style="color:var(--vi-600)">80%</span></div><div class="sbar"><div class="sfill sf-vi" data-w="80"></div></div></div>
+      </div>
+    </div>
+
+    <div class="skill-panel" id="s5">
+      <div class="skill-card">
+        <div class="scard-top"><div class="scard-icon sc-cy">🤝</div><h3>Soft Skills</h3></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Analytical Thinking</span><span class="srow-pct" style="color:var(--cy-600)">88%</span></div><div class="sbar"><div class="sfill sf-cy" data-w="88"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Communication</span><span class="srow-pct" style="color:var(--cy-600)">92%</span></div><div class="sbar"><div class="sfill sf-cy" data-w="92"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Teamwork</span><span class="srow-pct" style="color:var(--cy-600)">90%</span></div><div class="sbar"><div class="sfill sf-cy" data-w="90"></div></div></div>
+        <div class="srow"><div class="srow-top"><span class="srow-name">Problem Solving</span><span class="srow-pct" style="color:var(--cy-600)">88%</span></div><div class="sbar"><div class="sfill sf-cy" data-w="88"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PORTFOLIO ══ -->
+<section id="portfolio" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-ro">Portfolio</div>
+      <h2 class="sec-title">Selected <em>Projects</em></h2>
+      <p class="sec-sub">Click any project card to see full details, documentation, and source code</p>
+    </div>
+    <!-- carousel -->
+    <div class="p-carousel-wrap sr">
+      <button class="p-arrow left" id="pArrowL" onclick="scrollCarousel(-1)">&#8592;</button>
+      <button class="p-arrow right" id="pArrowR" onclick="scrollCarousel(1)">&#8594;</button>
+      <div class="p-carousel" id="pCarousel">
+      <div class="pcard" onclick="openProject('p1')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ind-50),var(--ind-100))"><img src="p1-cover.png" alt="Cash Nest" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(79,70,229,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ind-600);background:var(--ind-50);border:1px solid var(--ind-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Basic Programming</div><h3>SISTEM CASH NEST - (PENCATATAN KEUANGAN)</h3><p>A Streamlit-based application designed to record, manage, and monitor financial transactions, helping users track income and expenses in a simple and structured way.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Streamlit</span><span class="ptag">Matplotlib / Plotly</span><span class="ptag">Datetime</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p2')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--em-50),var(--em-100))"><img src="p2-cover.png" alt="Bank Queue" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(5,150,105,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--em-600);background:var(--em-50);border:1px solid var(--em-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Structures and Algorithms</div><h3>APLIKASI ANTRIAN BANK USE PRIORITY QUEUE</h3><p>A web-based queue management application developed using Streamlit, implementing the Priority Queue data structure to simulate a bank service system.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Streamlit</span><span class="ptag">Priority Queue</span><span class="ptag">Data Structures</span><span class="ptag">Algorithms</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p3')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--am-50),var(--am-100))"><img src="p3-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(217,119,6,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--am-600);background:var(--am-50);border:1px solid var(--am-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Design and Analysis of Algorithms</div><h3>Pro Navigator: A Comparative Analysis of Uniform Cost Search Dijkstra and Greedy Algorithms for Fastest Route Search Between Cities and Regions in East Java</h3><p>Pro Navigator is a desktop-based route optimization application developed using Python and Tkinter to determine the fastest route between cities and regions in East Java. The system applies Uniform Cost Search (Dijkstra’s Algorithm) and Greedy algorithms to solve the shortest path problem within a weighted graph structure.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">TKinter</span><span class="ptag">Algorithm</span><span class="ptag">Analysist</span></div></div>
+      </div>
+
+
+      <div class="pcard" onclick="openProject('p4')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--vi-50),var(--vi-100))"><img src="p4-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(124,58,237,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--vi-600);background:var(--vi-50);border:1px solid var(--vi-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Text Processing</div><h3>Mining Analysis And Comparison Of User Sentiments On Platform X (Twitter) And Google Maps Regarding Universitas Negeri Surabaya</h3><p>This project analyzes and compares user sentiments toward Universitas Negeri Surabaya on Platform X (Twitter) and Google Maps using text mining and machine learning techniques. The goal is to identify sentiment patterns and differences in public perception across both platforms.</p><div class="ptags"><span class="ptag">Sentiment Analysis</span><span class="ptag">NLP</span><span class="ptag">TF-IDF</span><span class="ptag">Machine Learning</span><span class="ptag">Model Evaluation</span><span class="ptag">Python</span><span class="ptag">Data Analysis</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p5')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--cy-50),var(--cy-100))"><img src="p5-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(8,145,178,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cy-600);background:var(--cy-50);border:1px solid var(--cy-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Base</div><h3>Design of an Integrated Information System for Clinic Management Based on Database to Improve Service Delivery</h3><p>KhitanXpress is a database-based clinic management information system designed to support patient data management, scheduling, and administrative processes to improve service efficiency and quality.</p><div class="ptags"><span class="ptag">SQL</span><span class="ptag">Python</span><span class="ptag">UI/UX Design</span><span class="ptag">Database Design</span><span class="ptag">Data Analysis</span><span class="ptag">System Modeling</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p6')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ro-50),var(--ro-100))"><img src="p6-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(225,29,72,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ro-600);background:var(--ro-50);border:1px solid var(--ro-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Digital Signal Processing</div><h3>Cleanify Pro: Audio Quality Enhancement Innovation Using Noise Reduction Technology Based On Finite Impulse Response (Fir) With Low-Pass Filter </h3><p>Cleanify Pro is a digital signal processing project that enhances audio quality by reducing noise using a Finite Impulse Response (FIR) Low-Pass Filter, ensuring clearer audio while preserving the main signal.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Digital Signal Processing (DSP)</span><span class="ptag">Analysis</span><span class="ptag">FIR Filter Design</span><span class="ptag">Audio Signal Processing</span><span class="ptag">NumPy & SciPy</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p7')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ind-50),var(--ind-100))"><img src="p7-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(79,70,229,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ind-600);background:var(--ind-50);border:1px solid var(--ind-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Artificial Intelligence</div><h3>Classifier Pro: Customer Classification Analysis Using Random Forest Algorithm On Company Data</h3><p>Classifier Pro is a machine learning project that applies the Random Forest algorithm to classify customers based on company data, helping generate insights that support data-driven business decisions.</p><div class="ptags"><span class="ptag">Machine Learning</span><span class="ptag">Python</span><span class="ptag">Random Forest Algorithm</span><span class="ptag">Data Preprocessing</span><span class="ptag">Data Analysis</span><span class="ptag">Classification Model Evaluation</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p8')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--em-50),var(--em-100))"><img src="p8-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(5,150,105,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--em-600);background:var(--em-50);border:1px solid var(--em-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Multivariate Analysis</div><h3>Comparative Analysis of MANOVA and MANCOVA on Heart Disease Risk Factors Using the Heart Disease Dataset</h3><p>This project compares MANOVA and MANCOVA methods to analyze heart disease risk factors using multivariate statistical techniques and the Heart Disease dataset, aiming to understand how different analytical approaches influence the interpretation of health-related data</p><div class="ptags"><span class="ptag">R Studio</span><span class="ptag">Exploratory Data Analysis</span><span class="ptag">Data Visualization</span><span class="ptag">Data Cleaning</span><span class="ptag">Statistical Assumption Testing</span><span class="ptag">MANOVA</span><span class="ptag">MANCOVA</span><span class="ptag">Data Interpretation</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p9')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--am-50),var(--am-100))"><img src="p9-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(217,119,6,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--am-600);background:var(--am-50);border:1px solid var(--am-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Warehouse</div><h3>Implementation of Distributed Computing for OLAP Query Execution on the COVID-19 Counties Dataset Using Celery and RabbitMQ</h3><p>This project implements distributed computing using Celery and RabbitMQ to execute OLAP queries on the COVID-19 Counties dataset, demonstrating how distributed processing can improve performance in data warehouse analytics.</p><div class="ptags"><span class="ptag">JupyterLab</span><span class="ptag">Celery</span><span class="ptag">RabbitMQ</span><span class="ptag">Distributed Computing</span><span class="ptag">Data Warehouse Architecture</span><span class="ptag">OLAP Operations</span><span class="ptag">Data Preprocessing</span><span class="ptag">Data Processing</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p10')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--vi-50),var(--vi-100))"><img src="p10-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(124,58,237,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--vi-600);background:var(--vi-50);border:1px solid var(--vi-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Human–Computer Interaction (HCI)</div><h3>Development of a Digital Application for Event and Volunteering Participation Based on Interests and Location</h3><p>This project presents the UI/UX design of a digital platform that helps users find and participate in events and volunteering activities based on their interests and location, emphasizing user-centered design principles in human–computer interaction.</p><div class="ptags"><span class="ptag">Figma</span><span class="ptag">Canva</span><span class="ptag">System Concept Statement Development</span><span class="ptag">User Analysis</span><span class="ptag">Storyboarding</span><span class="ptag">UI/UX Design</span><span class="ptag">Prototype Design</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p11')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--cy-50),var(--cy-100))"><img src="p11-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(8,145,178,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cy-600);background:var(--cy-50);border:1px solid var(--cy-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Mining</div><h3>Implementation of Market Basket Analysis, Customer Segmentation, and Seasonal Analysis to Improve Retail Sales Strategy</h3><p>This project applies data mining techniques, including Market Basket Analysis, Customer Segmentation, and Seasonal Analysis, to identify purchasing patterns and customer behavior in retail data, helping improve data-driven sales strategies.</p><div class="ptags"><span class="ptag">Data Preprocessing</span><span class="ptag">Customer Segmentation</span><span class="ptag">Market Basket Analysis (MBA)</span><span class="ptag">Seasonal Analysis</span><span class="ptag">Machine Learning</span><span class="ptag">Data Visualization</span><span class="ptag">Data Interpretation</span><span class="ptag">Data Mining</span><span class="ptag">Google Colab</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p12')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ro-50),var(--ro-100))"><img src="p12-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay"style="background:rgba(225,29,72,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ro-600);background:var(--ro-50);border:1px solid var(--ro-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Machine Learning</div><h3>Application of Machine Learning for Clustering, Classification, and Regression on the Olist E-Commerce Dataset</h3><p>This project applies machine learning techniques including clustering, classification, and regression on the Olist E-Commerce dataset to analyze patterns and generate insights from real-world e-commerce data.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Data Preprocessing</span><span class="ptag">Machine Learning</span><span class="ptag">Classification</span><span class="ptag">Regression</span><span class="ptag">Clustering</span><span class="ptag">K-Means</span><span class="ptag">Random Forest</span><span class="ptag">XGBoost</span><span class="ptag">Data Visualization</span><span class="ptag">Data Interpretation</span><span class="ptag">Google Colab</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p13')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ind-50),var(--ind-100))"><img src="p13-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(79,70,229,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ind-600);background:var(--ind-50);border:1px solid var(--ind-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Digital Image Processing</div><h3>Heart Wall Segmentation Analysis on Cardiac Ultrasound Images Using Frame Differencing, Adaptive Thresholding, and Morphological Operations</h3><p>This project applies digital image processing techniques to segment heart wall structures from cardiac ultrasound images using frame differencing, adaptive thresholding, and morphological operations.</p><div class="ptags"><span class="ptag">Image Preprocessing</span><span class="ptag">Python</span><span class="ptag">Segmentation Analysis</span><span class="ptag">Frame Differencing</span><span class="ptag">Adaptive Thresholding</span><span class="ptag">Morphological Operations</span><span class="ptag">Google Colab</span></div></div>
+      </div>
+
+      </div>
+    </div>
+    <!-- dots -->
+    <div class="p-dots sr" id="pDots">
+      <div class="p-dot active" onclick="goToCard(0)"></div>
+      <div class="p-dot" onclick="goToCard(1)"></div>
+      <div class="p-dot" onclick="goToCard(2)"></div>
+      <div class="p-dot" onclick="goToCard(3)"></div>
+      <div class="p-dot" onclick="goToCard(4)"></div>
+      <div class="p-dot" onclick="goToCard(5)"></div>
+    </div>
+    <!-- view all -->
+    <div class="p-viewall sr">
+      <button class="p-viewall-btn" id="pViewAllBtn" onclick="togglePortfolioGrid()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        View All Projects
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </div>
+    <!-- grid (expanded) -->
+    <div class="pgrid" id="pGrid">
+      <div class="pcard" onclick="openProject('p1')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ind-50),var(--ind-100))"><img src="p1-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(79,70,229,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ind-600);background:var(--ind-50);border:1px solid var(--ind-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Basic Programming</div><h3>SISTEM CASH NEST - (PENCATATAN KEUANGAN)</h3><p>A Streamlit-based application designed to record, manage, and monitor financial transactions, helping users track income and expenses in a simple and structured way.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Streamlit</span><span class="ptag">Matplotlib / Plotly</span><span class="ptag">Datetime</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p2')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--em-50),var(--em-100))"><img src="p2-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(5,150,105,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--em-600);background:var(--em-50);border:1px solid var(--em-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Structures and Algorithms</div><h3>APLIKASI ANTRIAN BANK USE PRIORITY QUEUE</h3><p>A web-based queue management application developed using Streamlit, implementing the Priority Queue data structure to simulate a bank service system.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Streamlit</span><span class="ptag">Priority Queue</span><span class="ptag">Data Structures</span><span class="ptag">Algorithms</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p3')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--am-50),var(--am-100))"><img src="p3-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(217,119,6,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--am-600);background:var(--am-50);border:1px solid var(--am-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Design and Analysis of Algorithms</div><h3>Pro Navigator: A Comparative Analysis of Uniform Cost Search Dijkstra and Greedy Algorithms for Fastest Route Search Between Cities and Regions in East Java</h3><p>Pro Navigator is a desktop-based route optimization application developed using Python and Tkinter to determine the fastest route between cities and regions in East Java. The system applies Uniform Cost Search (Dijkstra’s Algorithm) and Greedy algorithms to solve the shortest path problem within a weighted graph structure.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">TKinter</span><span class="ptag">Algorithm</span><span class="ptag">Analysist</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p4')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--vi-50),var(--vi-100))"><img src="p4-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(124,58,237,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--vi-600);background:var(--vi-50);border:1px solid var(--vi-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Text Processing</div><h3>Mining Analysis And Comparison Of User Sentiments On Platform X (Twitter) And Google Maps Regarding Universitas Negeri Surabaya</h3><p>This project analyzes and compares user sentiments toward Universitas Negeri Surabaya on Platform X (Twitter) and Google Maps using text mining and machine learning techniques. The goal is to identify sentiment patterns and differences in public perception across both platforms.</p><div class="ptags"><span class="ptag">Sentiment Analysis</span><span class="ptag">NLP</span><span class="ptag">TF-IDF</span><span class="ptag">Machine Learning</span><span class="ptag">Model Evaluation</span><span class="ptag">Python</span><span class="ptag">Data Analysis</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p5')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--cy-50),var(--cy-100))"><img src="p5-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(8,145,178,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cy-600);background:var(--cy-50);border:1px solid var(--cy-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Base</div><h3>Design of an Integrated Information System for Clinic Management Based on Database to Improve Service Delivery</h3><p>KhitanXpress is a database-based clinic management information system designed to support patient data management, scheduling, and administrative processes to improve service efficiency and quality.</p><div class="ptags"><span class="ptag">SQL</span><span class="ptag">Python</span><span class="ptag">UI/UX Design</span><span class="ptag">Database Design</span><span class="ptag">Data Analysis</span><span class="ptag">System Modeling</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p6')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ro-50),var(--ro-100))"><img src="p6-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(225,29,72,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ro-600);background:var(--ro-50);border:1px solid var(--ro-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Digital Signal Processing</div><h3>Cleanify Pro: Audio Quality Enhancement Innovation Using Noise Reduction Technology Based On Finite Impulse Response (Fir) With Low-Pass Filter </h3><p>Cleanify Pro is a digital signal processing project that enhances audio quality by reducing noise using a Finite Impulse Response (FIR) Low-Pass Filter, ensuring clearer audio while preserving the main signal.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Digital Signal Processing (DSP)</span><span class="ptag">Analysis</span><span class="ptag">FIR Filter Design</span><span class="ptag">Audio Signal Processing</span><span class="ptag">NumPy & SciPy</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p7')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ind-50),var(--ind-100))"><img src="p7-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(79,70,229,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ind-600);background:var(--ind-50);border:1px solid var(--ind-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Artificial Intelligence</div><h3>Classifier Pro: Customer Classification Analysis Using Random Forest Algorithm On Company Data</h3><p>Classifier Pro is a machine learning project that applies the Random Forest algorithm to classify customers based on company data, helping generate insights that support data-driven business decisions.</p><div class="ptags"><span class="ptag">Machine Learning</span><span class="ptag">Python</span><span class="ptag">Random Forest Algorithm</span><span class="ptag">Data Preprocessing</span><span class="ptag">Data Analysis</span><span class="ptag">Classification Model Evaluation</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p8')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--em-50),var(--em-100))"><img src="p8-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(5,150,105,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--em-600);background:var(--em-50);border:1px solid var(--em-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Multivariate Analysis</div><h3>Comparative Analysis of MANOVA and MANCOVA on Heart Disease Risk Factors Using the Heart Disease Dataset</h3><p>This project compares MANOVA and MANCOVA methods to analyze heart disease risk factors using multivariate statistical techniques and the Heart Disease dataset, aiming to understand how different analytical approaches influence the interpretation of health-related data</p><div class="ptags"><span class="ptag">R Studio</span><span class="ptag">Exploratory Data Analysis</span><span class="ptag">Data Visualization</span><span class="ptag">Data Cleaning</span><span class="ptag">Statistical Assumption Testing</span><span class="ptag">MANOVA</span><span class="ptag">MANCOVA</span><span class="ptag">Data Interpretation</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p9')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--am-50),var(--am-100))"><img src="p9-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(217,119,6,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--am-600);background:var(--am-50);border:1px solid var(--am-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Warehouse</div><h3>Implementation of Distributed Computing for OLAP Query Execution on the COVID-19 Counties Dataset Using Celery and RabbitMQ</h3><p>This project implements distributed computing using Celery and RabbitMQ to execute OLAP queries on the COVID-19 Counties dataset, demonstrating how distributed processing can improve performance in data warehouse analytics.</p><div class="ptags"><span class="ptag">JupyterLab</span><span class="ptag">Celery</span><span class="ptag">RabbitMQ</span><span class="ptag">Distributed Computing</span><span class="ptag">Data Warehouse Architecture</span><span class="ptag">OLAP Operations</span><span class="ptag">Data Preprocessing</span><span class="ptag">Data Processing</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p10')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--vi-50),var(--vi-100))"><img src="p10-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(124,58,237,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--vi-600);background:var(--vi-50);border:1px solid var(--vi-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Human–Computer Interaction (HCI)</div><h3>Development of a Digital Application for Event and Volunteering Participation Based on Interests and Location</h3><p>This project presents the UI/UX design of a digital platform that helps users find and participate in events and volunteering activities based on their interests and location, emphasizing user-centered design principles in human–computer interaction.</p><div class="ptags"><span class="ptag">Figma</span><span class="ptag">Canva</span><span class="ptag">System Concept Statement Development</span><span class="ptag">User Analysis</span><span class="ptag">Storyboarding</span><span class="ptag">UI/UX Design</span><span class="ptag">Prototype Design</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p11')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--cy-50),var(--cy-100))"><img src="p11-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(8,145,178,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--cy-600);background:var(--cy-50);border:1px solid var(--cy-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Data Mining</div><h3>Implementation of Market Basket Analysis, Customer Segmentation, and Seasonal Analysis to Improve Retail Sales Strategy</h3><p>This project applies data mining techniques, including Market Basket Analysis, Customer Segmentation, and Seasonal Analysis, to identify purchasing patterns and customer behavior in retail data, helping improve data-driven sales strategies.</p><div class="ptags"><span class="ptag">Data Preprocessing</span><span class="ptag">Customer Segmentation</span><span class="ptag">Market Basket Analysis (MBA)</span><span class="ptag">Seasonal Analysis</span><span class="ptag">Machine Learning</span><span class="ptag">Data Visualization</span><span class="ptag">Data Interpretation</span><span class="ptag">Data Mining</span><span class="ptag">Google Colab</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p12')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ro-50),var(--ro-100))"><img src="p12-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay"style="background:rgba(225,29,72,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ro-600);background:var(--ro-50);border:1px solid var(--ro-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Machine Learning</div><h3>Application of Machine Learning for Clustering, Classification, and Regression on the Olist E-Commerce Dataset</h3><p>This project applies machine learning techniques including clustering, classification, and regression on the Olist E-Commerce dataset to analyze patterns and generate insights from real-world e-commerce data.</p><div class="ptags"><span class="ptag">Python</span><span class="ptag">Data Preprocessing</span><span class="ptag">Machine Learning</span><span class="ptag">Classification</span><span class="ptag">Regression</span><span class="ptag">Clustering</span><span class="ptag">K-Means</span><span class="ptag">Random Forest</span><span class="ptag">XGBoost</span><span class="ptag">Data Visualization</span><span class="ptag">Data Interpretation</span><span class="ptag">Google Colab</span></div></div>
+      </div>
+
+      <div class="pcard" onclick="openProject('p13')">
+        <div class="pthumb"><div class="ptinner" style="background:linear-gradient(135deg,var(--ind-50),var(--ind-100))"><img src="p13-cover.png" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div><div class="poverlay" style="background:rgba(79,70,229,0.86)"><span style="color:white;font-size:.8rem;font-weight:700;background:rgba(255,255,255,0.18);padding:.45rem 1rem;border-radius:50px">See Full Details →</span></div></div>
+        <div class="pbody"><div style="display:inline-block;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ind-600);background:var(--ind-50);border:1px solid var(--ind-100);padding:.15rem .55rem;border-radius:50px;margin-bottom:.42rem">Digital Image Processing</div><h3>Heart Wall Segmentation Analysis on Cardiac Ultrasound Images Using Frame Differencing, Adaptive Thresholding, and Morphological Operations</h3><p>This project applies digital image processing techniques to segment heart wall structures from cardiac ultrasound images using frame differencing, adaptive thresholding, and morphological operations.</p><div class="ptags"><span class="ptag">Image Preprocessing</span><span class="ptag">Python</span><span class="ptag">Segmentation Analysis</span><span class="ptag">Frame Differencing</span><span class="ptag">Adaptive Thresholding</span><span class="ptag">Morphological Operations</span><span class="ptag">Google Colab</span></div></div>
+      </div>
+      <div> 
+    </div>
+  </div>
+</section>
+
+<!-- ══ LICENSES ══ -->
+<section id="licenses" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-am">Licenses &amp; Certificates</div>
+      <h2 class="sec-title">Certified &amp; <em>Verified Skills</em></h2>
+    </div>
+    <div class="lic-grid">
+      <div class="lic-card lc-ind sr"><div class="lic-icon" style="background:var(--ind-50)">🐍</div><div><div class="lic-issuer" style="color:var(--ind-600)">Dicoding Academy Indonesia</div><div class="lic-name">Fundamentals of Data Science</div><div class="lic-meta">Issued: 2026 · No Expiry</div><span class="lic-id">ID: N9ZON4DRYXG5</span><br><a onclick="openCredential('cred1')" class="lic-link" style="color:var(--ind-600)">View Credential →</a></div></div>
+      <div class="lic-card lc-em sr d1"><div class="lic-icon" style="background:var(--em-50)">🤖</div><div><div class="lic-issuer" style="color:var(--em-600)">Dicoding Academy Indonesia</div><div class="lic-name">Introduction to Artificial Intelligence</div><div class="lic-meta">Issued: 2026 · No Expiry</div><span class="lic-id">ID: 07Z67GKNJPQR</span><br><a onclick="openCredential('cred2')" class="lic-link" style="color:var(--em-600)">View Credential →</a></div></div>
+      <div class="lic-card lc-am sr d2"><div class="lic-icon" style="background:var(--am-50)">💡</div><div><div class="lic-issuer" style="color:var(--am-600)">Dicoding Academy Indonesia</div><div class="lic-name">Prompt Engineering for Software Developers</div><div class="lic-meta">Issued: 2026 · No Expiry</div><span class="lic-id">ID: 53XE1JEMVZRN</span><br><a onclick="openCredential('cred3')" class="lic-link" style="color:var(--am-600)">View Credential →</a></div></div>
+      <div class="lic-card lc-cy sr d1"><div class="lic-icon" style="background:var(--cy-50)">📉</div><div><div class="lic-issuer" style="color:var(--cy-600)">AWS Training & Certification</div><div class="lic-name">job Roles in the Cloud</div><div class="lic-meta">Issued: 2026 · No Expiry</div><span class="lic-id">Official Certificate · AWS </span><br><a onclick="openCredential('cred4')" class="lic-link" style="color:var(--cy-600)">View Credential →</a></div></div>
+      <div class="lic-card lc-vi sr d1"><div class="lic-icon" style="background:var(--vi-50)">🗺️</div><div><div class="lic-issuer" style="color:var(--vi-600)">Badan Pusat Statistik</div><div class="lic-name">Geospatial Data Analysis Officer — Economic Census 2026</div><div class="lic-meta">Issued: Aug 2025</div><span class="lic-id">Official Certificate · BPS Surabaya</span><br><a onclick="openCredential('cred5')" class="lic-link" style="color:var(--vi-600)">View Credential →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIAL MODAL -->
+<div class="credential-modal" id="credentialModal" onclick="if(event.target === this) closeCredential()">
+  <div class="credential-content">
+    <div class="credential-header">
+      <h3 id="credentialTitle">Credential</h3>
+      <button class="credential-close" onclick="closeCredential()">✕</button>
+    </div>
+    <div class="credential-body" id="credentialBody"></div>
+    <div class="credential-footer" id="credentialFooter"></div>
+  </div>
+</div>
+
+<!-- ══ HONORS ══ -->
+<section id="honors" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-am">Honors &amp; Awards</div>
+      <h2 class="sec-title">Recognition &amp; <em>Awards</em></h2>
+    </div>
+    <div class="honors-timeline">
+
+      <div class="honor-item sr">
+        <div class="honor-dot-wrap"><div class="honor-dot">🏅</div></div>
+        <div class="honor-content">
+          <span class="honor-year" style="background:var(--ind-50);color:var(--ind-700);border:1px solid var(--ind-100)">2025</span>
+          <div class="honor-title">Winner – Poster Competition on AI and Information Technology-Based Ideas in Sports, Disability, and Arts (MURI Record-Breaking Event).</div>
+          <div class="honor-org">State University of Surabaya </div>
+          <div class="honor-desc">Awarded as a winner in the Poster Competition on Artificial Intelligence and Information Technology Innovation in the fields of sports, disability, and others, during a MURI Record-Breaking event. The poster titled “NesaTrove: AI-Based Communication Tool for the Deaf” presented an innovative AI solution aimed at improving accessibility and communication for individuals with hearing impairments. This achievement reflects strong skills in research, innovation development, teamwork, and the application of artificial intelligence to solve real-world social problems.</div>
+          <span class="honor-badge" style="background:var(--ind-50);color:var(--ind-600);border:1px solid var(--ind-100)">🎓 Academic</span>
+          <div class="honor-photos">
+            <!-- Ganti <div class="honor-photo-empty"> dengan <div class="honor-photo"><img src="..."></div> -->
+            <div class="honor-photo"><img src="a1.jpeg" alt="Pict of People"></div>
+            <div class="honor-photo"><img src="a2.png" alt="Poster"></div>
+            <div class="honor-photo"><img src="a3.jpg" alt="Certificate"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ ACHIEVEMENTS ══ -->
+<section id="achievements" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-vi">Achievements</div>
+      <h2 class="sec-title">Key <em>Milestones</em></h2>
+    </div>
+    <div class="ach-stats sr">
+      <div class="ach-stat as-ind"><div class="ach-stat-num" style="color:var(--ind-600)" data-target="10">0<span>+</span></div><div class="ach-stat-label" style="color:var(--ind-600)">Projects Completed</div></div>
+      <div class="ach-stat as-em"><div class="ach-stat-num" style="color:var(--em-600)" data-target="4">0<span>+</span></div><div class="ach-stat-label" style="color:var(--em-600)">Work Experiences</div></div>
+      <div class="ach-stat as-am"><div class="ach-stat-num" style="color:var(--am-600)" data-target="5">0<span>+</span></div><div class="ach-stat-label" style="color:var(--am-600)">Certificates Earned</div></div>
+      <div class="ach-stat as-ro"><div class="ach-stat-num" style="color:var(--ro-600)" data-target="3">0<span>+</span></div><div class="ach-stat-label" style="color:var(--ro-600)">Organizations Joined</div></div>
+    </div>
+    <!-- Achievement carousel -->
+    <div class="ach-carousel-wrap sr">
+      <button class="ach-arrow left" onclick="scrollAch(-1)">&#8592;</button>
+      <button class="ach-arrow right" onclick="scrollAch(1)">&#8594;</button>
+      <div class="ach-carousel" id="achCarousel">
+        <div class="ach-card" style="scroll-snap-align:start;flex-shrink:0;width:265px;">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--ind-50)">🎯</div><span class="ach-level lv-gold">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – Student Creativity Program (PKM-GFT) 2024</h3>
+          <p>Project Title: MicroSift Air: Innovation in the Design and Development of an Air Filtration Device to Filter Microplastics as an Effort to Mitigate Microplastic Pollution in Open Environments.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev1.png" alt="Evidence"></div>
+          </div>
+        </div>
+        <div class="ach-card" style="scroll-snap-align:start;flex-shrink:0;width:265px;">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--em-50)">🌊</div><span class="ach-level lv-em">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – GEMASTIK 2024 (Data Mining Division)</h3>
+          <p>Project: Sentiment Analysis of Public Satisfaction with Village Administrative Services Based on X (Twitter) Posts Using Active Learning.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev2.png" alt="Evidence"></div>
+          </div>
+        </div>
+        <div class="ach-card" style="scroll-snap-align:start;flex-shrink:0;width:265px;">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--am-50)">📊</div><span class="ach-level lv-ind">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – Satria Data 2024, Statistics Infographics Competition (SIC)</h3>
+          <p>Infographic: Ensuring a Drop of Life: Bridging the Clean Water Access Gap for Sustainable Development in Indonesia.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev3.png" alt="Evidence"></div>
+          </div>
+        </div>
+        <div class="ach-card" style="scroll-snap-align:start;flex-shrink:0;width:265px;">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--am-50)">🗺️</div><span class="ach-level lv-ind">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – DIMAS-TI 2024, Digital Business Innovation Division</h3>
+          <p>Project: Development of an inclusive learning system for people with disabilities.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev4.png" alt="Evidence"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- dots -->
+    <div class="ach-dots sr" id="achDots">
+      <div class="ach-dot active" onclick="goToAch(0)"></div>
+      <div class="ach-dot" onclick="goToAch(1)"></div>
+      <div class="ach-dot" onclick="goToAch(2)"></div>
+      <div class="ach-dot" onclick="goToAch(3)"></div>
+      <div class="ach-dot" onclick="goToAch(4)"></div>
+      <div class="ach-dot" onclick="goToAch(5)"></div>
+    </div>
+    <!-- view all -->
+    <div class="ach-viewall sr">
+      <button class="ach-viewall-btn" id="achViewAllBtn" onclick="toggleAchGrid()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        View All Achievements
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </div>
+    <!-- grid expanded -->
+    <div class="ach-grid" id="achGrid">
+        <div class="ach-card">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--ind-50)">🎯</div><span class="ach-level lv-gold">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – Student Creativity Program (PKM-GFT) 2024</h3>
+          <p>Project Title: MicroSift Air: Innovation in the Design and Development of an Air Filtration Device to Filter Microplastics as an Effort to Mitigate Microplastic Pollution in Open Environments.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev1.png" alt="Evidence"></div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--em-50)">🌊</div><span class="ach-level lv-em">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – GEMASTIK 2024 (Data Mining Division)</h3>
+          <p>Project: Sentiment Analysis of Public Satisfaction with Village Administrative Services Based on X (Twitter) Posts Using Active Learning.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev2.png" alt="Evidence"></div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--am-50)">📊</div><span class="ach-level lv-ind">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – Satria Data 2024, Statistics Infographics Competition (SIC)</h3>
+          <p>Infographic: Ensuring a Drop of Life: Bridging the Clean Water Access Gap for Sustainable Development in Indonesia.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev3.png" alt="Evidence"></div>
+          </div>
+        </div>
+        <div class="ach-card">
+          <div class="ach-card-top"><div class="ach-icon" style="background:var(--am-50)">🗺️</div><span class="ach-level lv-ind">Internal Selection</span></div>
+          <h3>Internal Selection Qualifier – DIMAS-TI 2024, Digital Business Innovation Division</h3>
+          <p>Project: Development of an inclusive learning system for people with disabilities.</p>
+          <div class="ach-meta"><span class="ach-year">2024</span><span class="ach-org">UNESA</span></div>
+          <div class="ach-photos">
+            <div class="honor-photo"><img src="achiev4.png" alt="Evidence"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- CV DOWNLOAD -->
+<div class="cv-sec">
+  <div class="cv-inner sr">
+    <h2>Download My Full CV</h2>
+    <p>Available in PDF format, ready to share with recruiters or collaborators</p>
+    <a href="cv.pdf" download class="btn btn-white">⬇ Download CV — PDF</a>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="section-header sr">
+      <div class="chip c-cy">Contact</div>
+      <h2 class="sec-title">Let's <em>Collaborate</em></h2>
+    </div>
+    <div class="contact-layout">
+      <div class="cinfo sr">
+        <h3>I'm ready to hear your ideas</h3>
+        <p>Whether a project, job opportunity, or just a discussion about data — I'm always open to new conversations.</p>
+        <div class="citems">
+          <a class="citem" href="mailto:riskarmdhni6@gmail.com"><div class="cicon" style="background:var(--ind-50)">📧</div><div class="citem-info"><strong>Email</strong><span>riskarmdhni6@gmail.com</span></div></a>
+          <a class="citem" href="https://wa.me/6285755948178" target="_blank"><div class="cicon" style="background:var(--em-50)">💬</div><div class="citem-info"><strong>WhatsApp</strong><span>+62 857-5594-8178</span></div></a>
+          <a class="citem" href="https://www.linkedin.com/in/rizka-ayu-ramadhani-3a7b082b3" target="_blank"><div class="cicon" style="background:var(--ind-50)">🔗</div><div class="citem-info"><strong>LinkedIn</strong><span>linkedin.com/in/rizka-ayu</span></div></a>
+          <a class="citem" href="https://github.com/rizkaayuu" target="_blank"><div class="cicon" style="background:var(--gray-100)">💻</div><div class="citem-info"><strong>GitHub</strong><span>github.com/rizkaayuu</span></div></a>
+          <a class="citem" href="https://instagram.com/rizkaayuramadhanii" target="_blank"><div class="cicon" style="background:var(--ro-50)">📸</div><div class="citem-info"><strong>Instagram</strong><span>@rizkaayuramadhanii</span></div></a>
+        </div>
+      </div>
+      <div class="cform sr d2">
+        <h3>Send a Message</h3>
+        <form onsubmit="handleForm(event)">
+          <div class="frow">
+            <div class="fg"><label>Full Name</label><input type="text" placeholder="John Doe" required></div>
+            <div class="fg"><label>Email</label><input type="email" placeholder="john@email.com" required></div>
+          </div>
+          <div class="fg"><label>Type of Inquiry</label><select><option>Data Analysis / Science</option><option>Research Collaboration</option><option>Internship / Job Opportunity</option><option>Project Collaboration</option><option>Other</option></select></div>
+          <div class="fg"><label>Message</label><textarea placeholder="Tell me about your project or opportunity..." required></textarea></div>
+          <button type="submit" class="btn btn-ind fsub" id="sbtn">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">Portfolio<span>.</span></div>
+  <p>© 2026 Rizka Ayu Ramadhani · Surabaya, Indonesia</p>
+  <div class="flinks">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#honors">Honors</a><a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<!-- PORTFOLIO MODAL -->
+<div class="modal-overlay" id="projectModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── PROJECT DATA ── */
+const projects = {
+  p1:{image:'p1-cover.png',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Basic Programming',
+    title:'Cash Nest: A Financial Recording and Management System.',org:'State University of Surabaya · Surabaya · Okt 2023 — Jan 2024',
+    desc:'An interactive Streamlit-based dashboard transforming multi-sheet transactional data into real-time KPI visualizations for financial decision-making.',
+    details:['Designed and developed a Streamlit-based financial management system for structured income and expense tracking.','Engineered data processing workflows using Pandas for data cleaning, validation, and transformation.','Implemented CRUD functionalities to manage financial transactions efficiently.','Built interactive analytical dashboards with dynamic visualizations to monitor cash flow, expense distribution, and financial trends.','Automated financial calculations, including balance tracking and category-based aggregation for real-time insights.','Structured data storage and retrieval mechanisms to ensure data consistency and usability.'],
+    tags:['Python','Streamlit','Matplotlib / Plotly','Datetime'],
+    photos:[
+      {src:'p11.png', caption:'Income Management Interface'},
+      {src:'p12.png', caption:'Expense Management Interface:'},
+      {src:'p13.png', caption:'Future Value Calculator Interface'},
+      {src:'p14.png', caption:'Mortgage (KPR) Fund Calculator Interface'},
+      {src:'p15.png', caption:'Retirement Fund Calculator Interface'},
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Sistem-Cash-Net-Pencatatan-Keuangan-'},
+
+  p2:{image:'p2-cover.jpg',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))',chipC:'var(--em-600)',chipBg:'var(--em-50)',chipBor:'var(--em-100)',chip:'Data Structures and Algorithms',
+    title:'Bank Queue Management System Based on Priority Queue Algorithm',org:'Project State University of Surabaya · Apr- Jun 2024',
+    desc:'A web-based queue management application developed using Streamlit, implementing the Priority Queue data structure to simulate a bank service system. The system allows customers to be categorized based on priority levels (e.g., elderly, pregnant women, VIP customers, and regular customers). Using a priority-based algorithm, the application ensures that higher-priority customers are served first while maintaining fairness in queue order. This project demonstrates the practical implementation of data structures and algorithms concepts, particularly priority queues, in solving real-world queue management problems.',
+    details:['Customer input with priority level classification','Automatic queue sorting using Priority Queue logic','Real-time queue display and updates','Simulation of customer service processing','Produced research paper and scientific documentation.','Interactive and user-friendly Streamlit interface'],
+    tags:['Python','Streamlit','Data Structures','Algorithms','Priority Queue'],
+    photos:[{src:'p21.png', caption:'Queue System Interface'}],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Aplikasi-Antrian-Bank-Use-Priority-Queue'},
+
+  p3:{image:'p3-cover.jpg',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))',chipC:'var(--am-600)',chipBg:'var(--am-50)',chipBor:'var(--am-100)',chip:'Design and Analysis of Algorithms',
+    title:'Pro Navigator: A Comparative Analysis of Uniform Cost Search Dijkstra and Greedy Algorithms for Fastest Route Search Between Cities and Regions in East Java',org:'Project State University of Surabaya · Des 2024 — Jan 2025',
+    desc:'Pro Navigator is a desktop-based route optimization application developed using Python and Tkinter to determine the fastest route between cities and regions in East Java. The system applies Uniform Cost Search (Dijkstra’s Algorithm) and Greedy algorithms to solve the shortest path problem within a weighted graph structure.Locations are modeled as graph nodes, while routes are represented as weighted edges based on distance. The graph is implemented using an adjacency list representation, and path selection utilizes a priority queue mechanism for cost-based expansion in the Uniform Cost Search approach. The Greedy algorithm selects routes based on locally optimal choices to compare efficiency and solution behavior. This project demonstrates the implementation of algorithm design and analysis concepts, including shortest path computation, graph traversal, and performance comparison between optimal and heuristic-based approaches.',
+    details:['Desktop GUI developed using Tkinter','Graph representation using adjacency list structure','Priority Queue implementation for Uniform Cost Search','Greedy algorithm implementation for heuristic-based route selection','Algorithm comparison in terms of optimality and decision strategy','Fastest route computation with total distance calculation','Display of selected path and accumulated travel cost'],
+    tags:['Python','Tkinter','Algorithms','Analysist'],
+    photos:[
+      {src:'p31.jpg', caption:'Pro Navigator System Interface 1'},
+      {src:'p32.jpg', caption:'Pro Navigator System Interface 2'}
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Pro-Navigator'},
+
+  p4:{image:'p4-cover.jpg',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100))',chipC:'var(--vi-600)',chipBg:'var(--vi-50)',chipBor:'var(--vi-100)',chip:'Text Processing',
+    title:'Mining Analysis And Comparison Of User Sentiments On Platform X (Twitter) And Google Maps Regarding Universitas Negeri Surabaya',org:'Project State University of Surabaya· Okt 2024 — Jan 2025',
+    desc:'This project focuses on conducting a comparative sentiment analysis of user opinions about Universitas Negeri Surabaya on Platform X (Twitter) and Google Maps. The objective is to examine differences in public perception across social media discussions and location-based review platforms. The study applies text preprocessing, TF-IDF feature extraction, and machine learning classification techniques. Four models — Logistic Regression, Support Vector Machine (SVM), Naïve Bayes, and Decision Tree — were trained and evaluated. Based on performance metrics, Logistic Regression was selected as the best-performing model for final sentiment classification and comparative analysis.',
+    details:['Collected and prepared textual data from Platform X (Twitter) and Google Maps','Performed text preprocessing (cleaning, tokenization, stopword removal)','Applied TF-IDF for feature extraction','Trained and compared four classification models (Logistic Regression, SVM, Naïve Bayes, Decision Tree)','Evaluated model performance using accuracy, precision, recall, and F1-score','Evaluated model performance using accuracy, precision, recall, and F1-score','Selected Logistic Regression as the final model based on evaluation results','Conducted comparative sentiment distribution analysis between platforms','Generated insights on differences in public perception'],
+    tags:['Sentiment Analysis', 'NLP', 'TF-IDF', 'Machine Learning', 'Model Evaluation', 'Python', 'Data Analysis'],
+    photos:[
+      {src:'p41.jpg', caption:'Title'},
+      {src:'p42.jpg', caption:'Cover Presentation'}
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Analisis-Sentimen-UNESA'},
+
+  p5:{image:'p5-cover.jpg',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100))',chipC:'var(--cy-600)',chipBg:'var(--cy-50)',chipBor:'var(--cy-100)',chip:'Data Base',
+    title:'KhitanXpress: Design of an Integrated Information System for Clinic Management Based on Database to Improve Service Delivery',org:'Project State University of Surabaya · Sep 2024 - Jan 2025',
+    desc:'KhitanXpress is a project focused on designing an integrated information system for managing clinic operations through a centralized database. The system is designed to streamline information flow within a circumcision clinic by organizing patient data, scheduling procedures, doctor assignments, medical records, and payment information. By integrating these components into a single database system, KhitanXpress aims to improve operational efficiency, support better data management, and enable authorized users—such as administrators, doctors, and patients—to access relevant information more effectively. The project highlights the role of database-driven systems in enhancing healthcare service management.',
+    details:['Designed an integrated clinic management information system','Modeled system workflows for scheduling, doctor assignments, and service management','Designed relational database schema for centralized data storage','Analyzed system requirements to improve clinic operational efficiency','Documented system architecture and database design'],
+    tags:['SQL','Python','UI/UX Design','Database Design','Data Analysis'],
+    photos:[
+      {src:'p51.jpg', caption:'Homepage Interface'},
+      {src:'p52.jpg', caption:'Data Input Interface'},
+      {src:'p53.jpg', caption:'Data Update Interface'},
+      {src:'p54.jpg', caption:'Data Removal Interface'},
+      {src:'p55.jpg', caption:'Live Query Interface'},
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/KhitanXpress-Database'},
+
+  p6:{image:'p6-cover.jpg',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100))',chipC:'var(--ro-600)',chipBg:'var(--ro-50)',chipBor:'var(--ro-100)',chip:'Digital Signal Processing',
+    title:'Cleanify Pro: Audio Quality Enhancement Innovation Using Noise Reduction Technology Based On Finite Impulse Response (Fir) With Low-Pass Filter',org:'Project State University of Surabaya · Sep 2024 - Jan 2025',
+    desc:'Cleanify Pro is a digital signal processing project designed to improve audio quality by reducing unwanted noise in audio signals. The project focuses on implementing a Finite Impulse Response (FIR) filter combined with a Low-Pass Filter to suppress high-frequency noise while preserving the important components of the original audio signal. The system processes audio input by applying digital filtering techniques to identify and minimize noise interference. By adjusting filter parameters and testing the algorithm on different audio samples, the project evaluates how FIR-based filtering can effectively enhance audio clarity without significantly distorting the signal. This project demonstrates the practical application of digital signal processing concepts, particularly filter design and signal analysis, to address common challenges in audio technology. The results show that FIR filtering can be an effective approach for improving sound quality in recordings that contain background noise.',
+    details:['Implemented Finite Impulse Response (FIR) filtering algorithm for audio noise reduction.','Applied Low-Pass Filter techniques to suppress high-frequency noise in audio signals.','Conducted audio signal analysis and preprocessing before applying filtering methods.Conducted audio signal analysis and preprocessing before applying filtering methods.','Tuned filter parameters to achieve optimal balance between noise reduction and signal quality.','Tested and evaluated the filtering results using multiple audio samples to measure effectiveness.'],
+    tags:['Python','Digital Signal Processing (DSP)','FIR Filter Design','Audio Signal Processing','NumPy & SciPy','Data Analysis'],
+    photos:[
+      {src:'p61.jpg', caption:'Homepage Interface'},
+      {src:'p62.jpg', caption:'About Page Interface'},
+      {src:'p63.jpg', caption:'Upload Page Interface'},
+      {src:'p64.jpg', caption:'Display Page Interface'},
+      {src:'p65.jpg', caption:'Download Page Interface'},
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Pengolahan-Sinyal-Digital-Audio-'},
+
+p7:{image:'p7-cover.jpg',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Artificial Intelligence',
+    title:'Classifier Pro: Customer Classification Analysis Using Random Forest Algorithm On Company Data',org:'Project State University of Surabaya · Okt 2024 - Jan 2025',
+    desc:'Classifier Pro is an artificial intelligence project that focuses on analyzing and classifying customers using the Random Forest algorithm. The project aims to build a machine learning model that can categorize customers based on company data to support better business insights and decision-making. In this project, customer datasets were collected and processed through data preprocessing steps before being used to train a Random Forest classification model. The model was developed to identify patterns within the data and classify customers into specific categories. To evaluate the model’s effectiveness, several performance metrics such as accuracy, precision, and recall were used. Through this analysis, the project demonstrates how machine learning techniques can be applied to transform raw company data into meaningful information that supports data-driven strategies and decision-making.',
+    details:['Performed data preprocessing and preparation on company customer datasets','Implemented the Random Forest algorithm for customer classification.','Trained and tested the classification model using structured data.','Evaluated model performance using accuracy, precision, and recall metrics.','Analyzed classification results to generate insights for business decision-making'],
+    tags:['Python','Machine Learning','Random Forest Algorithm','Data Preprocessing','Classification Model Evaluation','Data Analysis'],
+    photos:[
+      {src:'p71.jpg', caption:'Dashboard Interface'},
+      {src:'p72.jpg', caption:'File Upload Page Interface'}
+    ],
+    webLink:'https://klasifikasi-pelanggan-dkp8ujgvguylkwmf75y8gn.streamlit.app/',
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Classifier-Pro'},
+
+p8:{image:'p8-cover.jpg',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))',chipC:'var(--em-600)',chipBg:'var(--em-50)',chipBor:'var(--em-100)',chip:'Multivariate Analysis',
+    title:'Comparative Analysis of MANOVA and MANCOVA on Heart Disease Risk Factors Using the Heart Disease Dataset',org:'Project State University of Surabaya · Jan- Jun 2025',
+    desc:'This project focuses on comparing the application of Multivariate Analysis of Variance (MANOVA) and Multivariate Analysis of Covariance (MANCOVA) to analyze heart disease risk factors using the Heart Disease dataset. The analysis aims to examine how multiple independent variables influence several dependent variables simultaneously while considering the role of covariates. The study involves exploratory data analysis, data cleaning, and statistical assumption testing before applying Two-Way MANOVA and Two-Way MANCOVA models. The results are then interpreted to understand the relationships between variables and to evaluate differences in analytical outcomes between both methods. This project demonstrates the use of multivariate statistical techniques to analyze complex health-related datasets and to generate meaningful insights from multiple correlated variables',
+    details:['Conducted Exploratory Data Analysis (EDA) to understand dataset characteristics','Performed data cleaning and preprocessing to prepare the dataset for analysis','Tested statistical assumptions required for MANOVA and MANCOVA','Implemented Two-Way MANOVA to analyze multivariate differences between groups','Applied Two-Way MANCOVA to examine the effect of covariates in the analysis','Compared results from both methods to interpret differences in findings','Visualized results to support statistical interpretation'],
+    tags:['R Studio','Exploratory Data Analysis','Data Visualization','Data Cleaning','Statistical Assumption Testing','MANOVA','MANCOVA','Data Interpretation'],
+    photos:[],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Perbandingan-Analisis-MANOVA-dan-MANCOVA-'},
+
+p9:{image:'p9-cover.jpg',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))',chipC:'var(--am-600)',chipBg:'var(--am-50)',chipBor:'var(--am-100)',chip:'Data Warehouse',
+    title:'Implementation of Distributed Computing for OLAP Query Execution on the COVID-19 Counties Dataset Using Celery and RabbitMQ',org:'Project State University of Surabaya · Jan — Jun 2025',
+    desc:'This project focuses on implementing distributed computing techniques to improve the execution of OLAP (Online Analytical Processing) queries on the COVID-19 Counties dataset. The system leverages Celery as a distributed task queue and RabbitMQ as a message broker to distribute query processing tasks across multiple workers. The project involves preparing and processing the dataset within a data warehouse environment, enabling efficient multidimensional analysis. By distributing OLAP query workloads, the system aims to enhance performance, scalability, and processing efficiency when handling large analytical queries. Through this implementation, the project demonstrates how distributed computing frameworks can support complex analytical operations in data warehouse systems.',
+    details:['Performed data preprocessing and preparation for analytical processing','Implemented OLAP operations for multidimensional data analysis','Designed distributed task execution using Celery workers','Configured RabbitMQ as the message broker for task communication','Executed OLAP queries in a distributed computing environment','Evaluated system performance and processing efficiency'],
+    tags:['JupyterLab','Celery','RabbitMQ','Distributed Computing','Data Warehouse Architecture','OLAP Operations','Data Preprocessing','Data Processing'],
+    photos:[],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Data-Warehouse'},
+
+p10:{image:'p10-cover.jpg',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100))',chipC:'var(--vi-600)',chipBg:'var(--vi-50)',chipBor:'var(--vi-100)',chip:'Human–Computer Interaction (HCI)',
+    title:'Development of a Digital Application for Event and Volunteering Participation Based on Interests and Location',org:'Project State University of Surabaya· Feb — Jun 2025',
+    desc:'This project focuses on designing the UI/UX concept of a digital application that facilitates user participation in events and volunteering activities based on their interests and location. Developed as part of the Human–Computer Interaction (HCI) course, the project emphasizes user-centered design to create an intuitive and engaging digital experience. The design process involved identifying user needs, developing system concepts, creating user journey scenarios, and designing interface prototypes. The final outcome is a structured UI/UX prototype that demonstrates how users can discover events, explore volunteering opportunities, and participate in activities that match their preferences and geographic location. This project highlights the importance of user analysis, interface design, and usability considerations in developing effective digital interaction systems.',
+    details:['Developed a System Concept Statement for the digital application','Conducted user analysis to identify user needs and interaction patterns','Created storyboards to illustrate user interaction flows','Designed UI/UX interfaces for event and volunteering participation features','Built an interactive prototype to visualize the application concept'],
+    tags:['Figma','Canva','System Concept Statement Development','User Analysis','Storyboarding','UI/UX Design','Prototype Design'],
+    photos:[
+      {src:'p101.png', caption:'Poster Project'},
+    ],
+    docLink:'#',codeLink:'https://www.figma.com/proto/7gTYBj04wt12BbnW2UbibL/TIM-01-IMK?node-id=81-23&p=f&t=4Tc90blp4WrwsBxC-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=13%3A2&show-proto-sidebar=1'},
+
+p11:{image:'p11-cover.jpg',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100))',chipC:'var(--cy-600)',chipBg:'var(--cy-50)',chipBor:'var(--cy-100)',chip:'Data Mining',
+    title:'Implementation of Market Basket Analysis, Customer Segmentation, and Seasonal Analysis to Improve Retail Sales Strategy',org:'Project State University of Surabaya · Feb - Jun 2025',
+    desc:'This project focuses on applying data mining techniques to analyze retail transaction data in order to improve sales strategies. The study integrates Market Basket Analysis (MBA), Customer Segmentation, and Seasonal Analysis to identify purchasing patterns, customer behavior, and seasonal sales trends. The process involves data preprocessing, data processing, and the application of analytical models to extract meaningful insights from retail datasets. Market Basket Analysis is used to discover product association patterns, while customer segmentation groups customers based on behavioral characteristics. Seasonal analysis is performed to identify sales trends over time. Through these analyses, the project demonstrates how data mining and machine learning techniques can support data-driven decision-making and help retail businesses optimize marketing and sales strategies.',
+    details:['Performed data preprocessing and data cleaning on retail transaction datasets','Applied Market Basket Analysis (MBA) to identify product association patterns','Conducted customer segmentation to group customers based on purchasing behavior','Implemented seasonal analysis to identify trends and patterns over time','Applied machine learning techniques to support data analysis','Created data visualizations to present analytical insights','Interpreted analytical results to support retail sales strategy decisions'],
+    tags:['Data Preprocessing','Customer Segmentation','Market Basket Analysis (MBA)','Seasonal Analysis','Machine Learning','Data Visualization','Data Interpretation','Data Mining','Google Colab'],
+    photos:[
+      {src:'p111.png', caption:'Poster Project'},
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Data-Mining_Market-Basket-Analysis'},
+
+p12:{image:'p12-cover.jpg',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100))',chipC:'var(--ro-600)',chipBg:'var(--ro-50)',chipBor:'var(--ro-100)',chip:'Machine Learning',
+    title:'Application of Machine Learning for Clustering, Classification, and Regression on the Olist E-Commerce Dataset',org:'Project State University of Surabaya · Feb - Jun 2025',
+    desc:'This project focuses on applying machine learning techniques to analyze the Olist E-Commerce dataset through clustering, classification, and regression tasks. The objective is to explore patterns within e-commerce data and build predictive models that can support better understanding of customer behavior and business insights. The project involves data preprocessing and data processing before implementing several machine learning algorithms. K-Means is used for clustering to group similar data patterns, while Random Forest and XGBoost are applied for classification and regression tasks. The results are evaluated and visualized to interpret patterns, model performance, and predictive outcomes. This project demonstrates how machine learning methods can be applied to extract insights and build predictive models from real-world e-commerce datasets.',
+    details:['Performed data preprocessing and data cleaning on the Olist e-commerce dataset','Conducted data processing and feature preparation for machine learning tasks','Implemented K-Means clustering to identify patterns within the dataset','Applied Random Forest and XGBoost for classification and regression models','Visualized analytical results to understand model behavior and data patterns','Interpreted machine learning outputs to generate insights from the dataset'],
+    tags:['Python','Data Preprocessing','Machine Learning','Classification','Regression','Clustering','K-Means','Random Forest','XGBoost','Data Visualization','Data Interpretation','Google Colab'],
+    photos:[
+      {src:'p121.png', caption:'Poster Project'},
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Penerapan-Machine-Learning-untuk-Clustering-Classification-dan-Regression'},
+
+p13:{image:'p13-cover.jpg',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Digital Image Processing',
+    title:'Heart Wall Segmentation Analysis on Cardiac Ultrasound Images Using Frame Differencing, Adaptive Thresholding, and Morphological Operations',org:'Project State University of Surabaya · Jan - Jun 2025',
+    desc:'This project focuses on analyzing the segmentation of heart wall structures in cardiac ultrasound images using digital image processing techniques. The goal is to identify and isolate important regions of the heart from ultrasound image sequences to support better visualization and analysis. The process begins with image preprocessing to improve image quality and reduce noise. Motion detection is then performed using frame differencing to highlight changes between consecutive frames. Next, adaptive thresholding is applied to separate relevant regions from the background. Finally, morphological operations are used to refine the segmentation results and improve the clarity of the detected heart wall structures. This project demonstrates the application of digital image processing techniques to analyze medical imaging data and extract meaningful structural information from ultrasound images.',
+    details:['Performed image preprocessing to improve ultrasound image quality','Applied frame differencing to detect motion and changes between frames','Implemented adaptive thresholding to separate objects from the background','Used morphological operations to refine segmentation results','Conducted segmentation analysis to identify heart wall regions','Visualized segmentation outputs to support interpretation of results'],
+    tags:['Python','Image Preprocessing','Segmentation Analysis','Frame Differencing','Adaptive Thresholding','Morphological Operations','Google Colab'],
+    photos:[
+      {src:'p131.png', caption:'Poster Project'},
+    ],
+    docLink:'#',codeLink:'https://github.com/rizkaayuu/Pengolahan-Citra-Digital'},
+
+};
+
+function openProject(id){
+  const p=projects[id];
+  document.getElementById('modalBody').innerHTML=`
+    <div class="modal-thumb" style="background:${p.bg}"><img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;border-radius:11px;"></div>
+    <div style="display:inline-block;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:${p.chipC};background:${p.chipBg};border:1px solid ${p.chipBor};padding:.14rem .55rem;border-radius:50px;margin-bottom:.5rem">${p.chip}</div>
+    <h2 class="modal-title">${p.title}</h2>
+    <div class="modal-org">📍 ${p.org}</div>
+    <p class="modal-desc">${p.desc}</p>
+    <div class="modal-section-title">Key Activities & Contributions</div>
+    <ul class="modal-bullets">${p.details.map(d=>`<li>${d}</li>`).join('')}</ul>
+    <div class="modal-section-title">Technologies Used</div>
+    <div class="modal-tags">${p.tags.map(t=>`<span class="ptag">${t}</span>`).join('')}</div>
+    <div class="modal-actions">
+      ${p.photos && p.photos.length > 0 ? `<button onclick="openProjectGallery('${Object.keys(projects).find(k=>projects[k]===p)}')" class="btn btn-ind btn-sm">📄 View Documentation</button>` : `<a href="${p.docLink}" target="_blank" class="btn btn-ind btn-sm">📄 View Documentation</a>`}
+      <a href="${p.codeLink}" target="_blank" class="btn btn-out btn-sm">💻 View Code / GitHub</a>
+    </div>`;
+  document.getElementById('projectModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){document.getElementById('projectModal').classList.remove('open');document.body.style.overflow='';}
+
+/* ── PROJECT DOCUMENTATION GALLERY ── */
+function openProjectGallery(projectId){
+  const p=projects[projectId];
+  if(!p || !p.photos || p.photos.length===0){
+    alert('Dokumentasi belum tersedia untuk project ini');
+    return;
+  }
+  const gallery=document.getElementById('projectGallery');
+  gallery.innerHTML=`
+    <div class="gallery-header">
+      <h3>${p.title}</h3>
+      <button onclick="closeProjectGallery()" class="gallery-close">✕</button>
+    </div>
+    ${p.webLink && p.webLink !== '#' ? `
+    <div class="gallery-web-link">
+      <span class="web-link-label">🌐 Live Project</span>
+      <a href="${p.webLink}" target="_blank" class="web-link-button">Visit Website →</a>
+    </div>
+    ` : ''}
+    <div class="gallery-grid">
+      ${p.photos.map((photo,i)=>`
+        <div class="gallery-item" onclick="openGalleryImage(${i})">
+          <img src="${photo.src}" alt="${photo.caption||'Documentation'}" style="width:100%;height:100%;object-fit:cover;border-radius:10px;cursor:pointer;">
+          <p class="gallery-caption">${photo.caption||'Photo '+(i+1)}</p>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  document.getElementById('projectGallerModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeProjectGallery(){
+  document.getElementById('projectGallerModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+function openGalleryImage(idx){
+  const modal=document.getElementById('projectGallerModal');
+  const gallery=document.getElementById('projectGallery');
+  const items=gallery.querySelectorAll('.gallery-item img');
+  if(items[idx]){
+    document.getElementById('galleryLightboxImage').src=items[idx].src;
+    document.getElementById('galleryLightboxCaption').textContent=items[idx].alt;
+    document.getElementById('galleryLightbox').classList.add('open');
+  }
+}
+function closeGalleryLightbox(){
+  document.getElementById('galleryLightbox').classList.remove('open');
+}
+function openLightbox(el){
+  const img=el.querySelector('img');
+  if(!img)return;
+  document.getElementById('lightboxImg').src=img.src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+
+// Gallery and Lightbox event handlers
+document.addEventListener('click',function(e){
+  if(e.target.id==='projectGallerModal') closeProjectGallery();
+  if(e.target.id==='galleryLightbox') closeGalleryLightbox();
+},{passive:true});
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closeLightbox();closeGalleryLightbox();closeProjectGallery();closeCredential();}});
+
+/* ── CREDENTIAL DATA ── */
+const credentials={
+  cred1:{title:'Fundamentals of Data Science',issuer:'Dicoding Academy Indonesia',file:'python-cert.pdf',type:'pdf'},
+  cred2:{title:'Introduction to Artificial Intelligence',issuer:'Dicoding Academy Indonesia',file:'ai-cert.pdf',type:'pdf'},
+  cred3:{title:'Prompt Engineering for Software Developers',issuer:'Dicoding Academy Indonesia',file:'prompt-cert.pdf',type:'pdf'},
+  cred4:{title:'job Roles in the Cloud',issuer:'AWS Training & Certification',file:'aws-cert.pdf',type:'pdf'},
+  cred5:{title:'Geospatial Data Analysis Officer — Economic Census 2026',issuer:'Badan Pusat Statistik',file:'bps-cert.jpg',type:'jpg'}
+};
+
+/* ── CREDENTIAL MODAL ── */
+function openCredential(id){
+  const cred=credentials[id];
+  if(!cred)return;
+  document.getElementById('credentialTitle').textContent=cred.title;
+  const body=document.getElementById('credentialBody');
+  const footer=document.getElementById('credentialFooter');
+  const isPdf=cred.type.toLowerCase()==='pdf';
+  if(isPdf){
+    body.innerHTML=`<embed src="${cred.file}" class="credential-pdf" type="application/pdf">`;
+  } else {
+    body.innerHTML=`<img src="${cred.file}" alt="${cred.title}" class="credential-image">`;
+  }
+  footer.innerHTML=`<strong>${cred.issuer}</strong><br><span style="font-size:0.75rem;color:var(--gray-400)">Credential File: ${cred.file}</span>`;
+  document.getElementById('credentialModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeCredential(){
+  document.getElementById('credentialModal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ── CURSOR ── */
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.pcard,.skill-card,.lic-card,.honor-item,.ach-card,.ach-stat,.enav-item,.edu-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>ring.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>ring.classList.remove('hov'));
+});
+
+/* ── SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('pbar').style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
+  document.getElementById('btop').classList.toggle('show',window.scrollY>400);
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    const s=document.querySelector(a.getAttribute('href'));
+    if(s){const t=s.offsetTop-120,b=t+s.offsetHeight;a.classList.toggle('active',window.scrollY>=t&&window.scrollY<b);}
+  });
+});
+
+/* ── SCROLL REVEAL ── */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('show');obs.unobserve(x.target);}});},{threshold:0.07,rootMargin:'0px 0px -25px 0px'});
+document.querySelectorAll('.sr').forEach(el=>obs.observe(el));
+
+/* ── SKILL BARS ── */
+const skObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.querySelectorAll('.sfill').forEach(b=>{b.style.width=b.dataset.w+'%';});skObs.unobserve(x.target);}});},{threshold:0.3});
+document.querySelectorAll('.skill-card').forEach(el=>skObs.observe(el));
+
+/* ── COUNTER ── */
+const cntObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const t=parseInt(x.target.dataset.target)||0;let c=0;const iv=setInterval(()=>{c=Math.min(c+1,t);x.target.childNodes[0].textContent=c;if(c>=t)clearInterval(iv);},60);cntObs.unobserve(x.target);}});},{threshold:0.5});
+document.querySelectorAll('.ach-stat-num[data-target]').forEach(el=>cntObs.observe(el));
+
+/* ── EXP TYPE TOGGLE (Work / Org) ── */
+function switchSkill(id, btn, activeClass) {
+  // deactivate all tabs — remove any active-* class
+  document.querySelectorAll('.stab').forEach(b => {
+    b.className = b.className.replace(/active-\w+/g, '').trim();
+  });
+  btn.classList.add(activeClass);
+  // swap panels
+  document.querySelectorAll('.skill-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  // animate bars in newly shown panel
+  document.getElementById(id).querySelectorAll('.sfill').forEach(b => {
+    b.style.width = '0';
+    setTimeout(() => { b.style.width = b.dataset.w + '%'; }, 30);
+  });
+}
+
+function switchExpType(type, btn) {
+  // toggle buttons
+  document.querySelectorAll('.exp-toggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  // panels
+  document.querySelectorAll('.exp-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('exp-panel-' + type).classList.add('active');
+}
+
+/* ── EXP TAB SWITCH (scoped) ── */
+function switchExp(item, id, navId, contentId){
+  // deactivate all nav items in this nav
+  document.getElementById(navId).querySelectorAll('.enav-item').forEach(i=>i.classList.remove('active'));
+  // deactivate all content items in this content area
+  document.getElementById(contentId).querySelectorAll('.exp-item').forEach(i=>i.classList.remove('active'));
+  // activate clicked nav item and target content
+  item.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+/* ── PORTFOLIO CAROUSEL ── */
+(function(){
+  const c = document.getElementById('pCarousel');
+  if(!c) return;
+  const dots = document.querySelectorAll('.p-dot');
+
+  // drag-to-scroll
+  let isDown=false,startX,scrollL;
+  c.addEventListener('mousedown',e=>{isDown=true;c.style.cursor='grabbing';startX=e.pageX-c.offsetLeft;scrollL=c.scrollLeft;});
+  c.addEventListener('mouseleave',()=>{isDown=false;c.style.cursor='grab';});
+  c.addEventListener('mouseup',()=>{isDown=false;c.style.cursor='grab';});
+  c.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-c.offsetLeft;c.scrollLeft=scrollL-(x-startX)*1.2;});
+
+  // update dots on scroll
+  c.addEventListener('scroll',()=>{
+    const cardW = c.querySelector('.pcard').offsetWidth + 19;
+    const idx = Math.round(c.scrollLeft / cardW);
+    dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+  },{passive:true});
+})();
+
+function scrollCarousel(dir){
+  const c=document.getElementById('pCarousel');
+  const cardW=c.querySelector('.pcard').offsetWidth+19;
+  c.scrollBy({left:dir*cardW,behavior:'smooth'});
+}
+
+function goToCard(idx){
+  const c=document.getElementById('pCarousel');
+  const cardW=c.querySelector('.pcard').offsetWidth+19;
+  c.scrollTo({left:idx*cardW,behavior:'smooth'});
+}
+
+function togglePortfolioGrid(){
+  const grid=document.getElementById('pGrid');
+  const btn=document.getElementById('pViewAllBtn');
+  const isOpen=grid.classList.toggle('open');
+  btn.classList.toggle('open',isOpen);
+  const label=btn.querySelector('svg:last-child');
+  btn.childNodes[2].textContent=isOpen?' Hide Projects ':' View All Projects ';
+  if(isOpen) grid.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ── ACHIEVEMENT CAROUSEL ── */
+(function(){
+  const c = document.getElementById('achCarousel');
+  if(!c) return;
+  const dots = document.querySelectorAll('.ach-dot');
+  let isDown=false, startX, scrollL;
+  c.addEventListener('mousedown',e=>{isDown=true;c.style.cursor='grabbing';startX=e.pageX-c.offsetLeft;scrollL=c.scrollLeft;});
+  c.addEventListener('mouseleave',()=>{isDown=false;c.style.cursor='grab';});
+  c.addEventListener('mouseup',()=>{isDown=false;c.style.cursor='grab';});
+  c.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();const x=e.pageX-c.offsetLeft;c.scrollLeft=scrollL-(x-startX)*1.2;});
+  c.addEventListener('scroll',()=>{
+    const cardW = c.querySelector('.ach-card').offsetWidth + 19;
+    const idx = Math.round(c.scrollLeft / cardW);
+    dots.forEach((d,i)=>d.classList.toggle('active', i===idx));
+  },{passive:true});
+})();
+
+function scrollAch(dir){
+  const c=document.getElementById('achCarousel');
+  const cardW=c.querySelector('.ach-card').offsetWidth+19;
+  c.scrollBy({left:dir*cardW,behavior:'smooth'});
+}
+function goToAch(idx){
+  const c=document.getElementById('achCarousel');
+  const cardW=c.querySelector('.ach-card').offsetWidth+19;
+  c.scrollTo({left:idx*cardW,behavior:'smooth'});
+}
+function toggleAchGrid(){
+  const grid=document.getElementById('achGrid');
+  const btn=document.getElementById('achViewAllBtn');
+  const isOpen=grid.classList.toggle('open');
+  btn.classList.toggle('open',isOpen);
+  // update label text node (between the two SVGs)
+  const textNode=[...btn.childNodes].find(n=>n.nodeType===3&&n.textContent.trim());
+  if(textNode) textNode.textContent=isOpen?' Hide Achievements ':' View All Achievements ';
+  if(isOpen) grid.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+/* ── FORM ── */
+function handleForm(e){
+  e.preventDefault();
+  const b=document.getElementById('sbtn');
+  b.textContent='✓ Message Sent!';b.style.background='var(--em-600)';b.disabled=true;
+  setTimeout(()=>{b.textContent='Send Message →';b.style.background='';b.disabled=false;e.target.reset();},3500);
+}
+
+/* ── PHOTO MODAL ── */
+function openPhotoModal(imgSrc,caption){
+  const modal=document.getElementById('photoModal');
+  const img=document.getElementById('photoModalImage');
+  const cap=document.getElementById('photoModalCaption');
+  if(!modal) return;
+  img.src=imgSrc;
+  cap.textContent=caption;
+  modal.classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closePhotoModal(){
+  const modal=document.getElementById('photoModal');
+  if(!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('click',function(e){
+  const img=e.target.closest('.exp-photo-item img');
+  if(img){
+    const caption=img.closest('.exp-photo-wrapper')?.querySelector('.exp-photo-caption')?.textContent||'Photo';
+    openPhotoModal(img.src,caption);
+    return;
+  }
+  if(e.target.id==='photoModalCloseBtn'){
+    closePhotoModal();
+  }
+  if(e.target.id==='photoModal'){
+    closePhotoModal();
+  }
+},{passive:true});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closePhotoModal();
+});
+</script>
+<!-- PROJECT GALLERY MODAL -->
+<div class="gallery-modal" id="projectGallerModal">
+  <div class="gallery-content">
+    <div id="projectGallery"></div>
+  </div>
+</div>
+
+<!-- GALLERY LIGHTBOX -->
+<div class="gallery-lightbox" id="galleryLightbox">
+  <button class="gallery-lightbox-close" onclick="closeGalleryLightbox()">✕</button>
+  <div class="gallery-lightbox-content">
+    <img id="galleryLightboxImage" class="gallery-lightbox-image" src="" alt="Documentation photo">
+    <div id="galleryLightboxCaption" class="gallery-lightbox-caption"></div>
+  </div>
+</div>
+
+<!-- PHOTO MODAL -->
+<div class="photo-modal" id="photoModal">
+  <div class="photo-modal-content">
+    <button class="photo-modal-close" id="photoModalCloseBtn">×</button>
+    <img id="photoModalImage" class="photo-modal-image" src="" alt="Photo">
+    <div class="photo-modal-caption" id="photoModalCaption"></div>
+  </div>
+</div>
+</body>
+</html>
