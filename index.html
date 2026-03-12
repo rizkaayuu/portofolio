@@ -499,13 +499,13 @@ nav.scrolled{box-shadow:0 4px 24px rgba(99,102,241,0.09);}
 .fsub{width:100%;}
 
 /* FOOTER */
-footer{background:var(--gray-900);color:var(--gray-400);padding:2.2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
-.flogo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:white;}
+footer{background:var(--gray-900);color:var(--gray-400);padding:2.2rem 5%;display:flex;align-items:center;gap:2rem;flex-wrap:wrap;}
+.flogo{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:white;white-space:nowrap;}
 .flogo span{color:var(--ind-400);}
-footer p{font-size:0.76rem;}
-.flinks{display:flex;gap:1.3rem;}
-.flinks a{font-size:0.74rem;color:var(--gray-400);text-decoration:none;transition:color 0.2s;}
-.flinks a:hover{color:var(--ind-400);}
+footer p{font-size:0.76rem;margin:0;}
+.flinks{display:flex;gap:1rem;align-items:center;margin-left:auto;}
+.flinks a{font-size:1.1rem;text-decoration:none;opacity:0.8;transition:all 0.2s;display:inline-flex;align-items:center;justify-content:center;}
+.flinks a:hover{opacity:1;transform:scale(1.15);}
 
 /* ══ PORTFOLIO MODAL ══ */
 .modal-overlay{position:fixed;inset:0;z-index:800;background:rgba(17,24,39,0.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.24s;}
@@ -1420,7 +1420,16 @@ footer p{font-size:0.76rem;}
   <div class="flogo">Portfolio<span>.</span></div>
   <p>© 2026 Rizka Ayu Ramadhani · Surabaya, Indonesia</p>
   <div class="flinks">
-    <a href="#home">Home</a><a href="#about">About</a><a href="#portfolio">Portfolio</a><a href="#honors">Honors</a><a href="#contact">Contact</a>
+    <a href="#home" title="Home">🏠</a>
+    <a href="#about" title="About">👤</a>
+    <a href="#education" title="Education">🎓</a>
+    <a href="#experience" title="Experience">💼</a>
+    <a href="#skills" title="Skills">⭐</a>
+    <a href="#portfolio" title="Portfolio">🎨</a>
+    <a href="#licenses" title="Licenses">📜</a>
+    <a href="#honors" title="Honors">🏆</a>
+    <a href="#achievements" title="Achievements">🎯</a>
+    <a href="#contact" title="Contact">📧</a>
   </div>
 </footer>
 
@@ -1455,7 +1464,7 @@ const projects = {
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Sistem-Cash-Net-Pencatatan-Keuangan-'},
 
-  p2:{image:'p2-cover.jpg',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))',chipC:'var(--em-600)',chipBg:'var(--em-50)',chipBor:'var(--em-100)',chip:'Data Structures and Algorithms',
+  p2:{image:'p2-cover.png',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))',chipC:'var(--em-600)',chipBg:'var(--em-50)',chipBor:'var(--em-100)',chip:'Data Structures and Algorithms',
     title:'Bank Queue Management System Based on Priority Queue Algorithm',org:'Project State University of Surabaya · Apr- Jun 2024',
     desc:'A web-based queue management application developed using Streamlit, implementing the Priority Queue data structure to simulate a bank service system. The system allows customers to be categorized based on priority levels (e.g., elderly, pregnant women, VIP customers, and regular customers). Using a priority-based algorithm, the application ensures that higher-priority customers are served first while maintaining fairness in queue order. This project demonstrates the practical implementation of data structures and algorithms concepts, particularly priority queues, in solving real-world queue management problems.',
     details:['Customer input with priority level classification','Automatic queue sorting using Priority Queue logic','Real-time queue display and updates','Simulation of customer service processing','Produced research paper and scientific documentation.','Interactive and user-friendly Streamlit interface'],
@@ -1463,7 +1472,7 @@ const projects = {
     photos:[{src:'p21.png', caption:'Queue System Interface'}],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Aplikasi-Antrian-Bank-Use-Priority-Queue'},
 
-  p3:{image:'p3-cover.jpg',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))',chipC:'var(--am-600)',chipBg:'var(--am-50)',chipBor:'var(--am-100)',chip:'Design and Analysis of Algorithms',
+  p3:{image:'p3-cover.png',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))',chipC:'var(--am-600)',chipBg:'var(--am-50)',chipBor:'var(--am-100)',chip:'Design and Analysis of Algorithms',
     title:'Pro Navigator: A Comparative Analysis of Uniform Cost Search Dijkstra and Greedy Algorithms for Fastest Route Search Between Cities and Regions in East Java',org:'Project State University of Surabaya · Des 2024 — Jan 2025',
     desc:'Pro Navigator is a desktop-based route optimization application developed using Python and Tkinter to determine the fastest route between cities and regions in East Java. The system applies Uniform Cost Search (Dijkstra’s Algorithm) and Greedy algorithms to solve the shortest path problem within a weighted graph structure.Locations are modeled as graph nodes, while routes are represented as weighted edges based on distance. The graph is implemented using an adjacency list representation, and path selection utilizes a priority queue mechanism for cost-based expansion in the Uniform Cost Search approach. The Greedy algorithm selects routes based on locally optimal choices to compare efficiency and solution behavior. This project demonstrates the implementation of algorithm design and analysis concepts, including shortest path computation, graph traversal, and performance comparison between optimal and heuristic-based approaches.',
     details:['Desktop GUI developed using Tkinter','Graph representation using adjacency list structure','Priority Queue implementation for Uniform Cost Search','Greedy algorithm implementation for heuristic-based route selection','Algorithm comparison in terms of optimality and decision strategy','Fastest route computation with total distance calculation','Display of selected path and accumulated travel cost'],
@@ -1474,7 +1483,7 @@ const projects = {
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Pro-Navigator'},
 
-  p4:{image:'p4-cover.jpg',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100))',chipC:'var(--vi-600)',chipBg:'var(--vi-50)',chipBor:'var(--vi-100)',chip:'Text Processing',
+  p4:{image:'p4-cover.png',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100))',chipC:'var(--vi-600)',chipBg:'var(--vi-50)',chipBor:'var(--vi-100)',chip:'Text Processing',
     title:'Mining Analysis And Comparison Of User Sentiments On Platform X (Twitter) And Google Maps Regarding Universitas Negeri Surabaya',org:'Project State University of Surabaya· Okt 2024 — Jan 2025',
     desc:'This project focuses on conducting a comparative sentiment analysis of user opinions about Universitas Negeri Surabaya on Platform X (Twitter) and Google Maps. The objective is to examine differences in public perception across social media discussions and location-based review platforms. The study applies text preprocessing, TF-IDF feature extraction, and machine learning classification techniques. Four models — Logistic Regression, Support Vector Machine (SVM), Naïve Bayes, and Decision Tree — were trained and evaluated. Based on performance metrics, Logistic Regression was selected as the best-performing model for final sentiment classification and comparative analysis.',
     details:['Collected and prepared textual data from Platform X (Twitter) and Google Maps','Performed text preprocessing (cleaning, tokenization, stopword removal)','Applied TF-IDF for feature extraction','Trained and compared four classification models (Logistic Regression, SVM, Naïve Bayes, Decision Tree)','Evaluated model performance using accuracy, precision, recall, and F1-score','Evaluated model performance using accuracy, precision, recall, and F1-score','Selected Logistic Regression as the final model based on evaluation results','Conducted comparative sentiment distribution analysis between platforms','Generated insights on differences in public perception'],
@@ -1485,7 +1494,7 @@ const projects = {
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Analisis-Sentimen-UNESA'},
 
-  p5:{image:'p5-cover.jpg',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100))',chipC:'var(--cy-600)',chipBg:'var(--cy-50)',chipBor:'var(--cy-100)',chip:'Data Base',
+  p5:{image:'p5-cover.png',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100))',chipC:'var(--cy-600)',chipBg:'var(--cy-50)',chipBor:'var(--cy-100)',chip:'Data Base',
     title:'KhitanXpress: Design of an Integrated Information System for Clinic Management Based on Database to Improve Service Delivery',org:'Project State University of Surabaya · Sep 2024 - Jan 2025',
     desc:'KhitanXpress is a project focused on designing an integrated information system for managing clinic operations through a centralized database. The system is designed to streamline information flow within a circumcision clinic by organizing patient data, scheduling procedures, doctor assignments, medical records, and payment information. By integrating these components into a single database system, KhitanXpress aims to improve operational efficiency, support better data management, and enable authorized users—such as administrators, doctors, and patients—to access relevant information more effectively. The project highlights the role of database-driven systems in enhancing healthcare service management.',
     details:['Designed an integrated clinic management information system','Modeled system workflows for scheduling, doctor assignments, and service management','Designed relational database schema for centralized data storage','Analyzed system requirements to improve clinic operational efficiency','Documented system architecture and database design'],
@@ -1499,7 +1508,7 @@ const projects = {
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/KhitanXpress-Database'},
 
-  p6:{image:'p6-cover.jpg',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100))',chipC:'var(--ro-600)',chipBg:'var(--ro-50)',chipBor:'var(--ro-100)',chip:'Digital Signal Processing',
+  p6:{image:'p6-cover.png',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100))',chipC:'var(--ro-600)',chipBg:'var(--ro-50)',chipBor:'var(--ro-100)',chip:'Digital Signal Processing',
     title:'Cleanify Pro: Audio Quality Enhancement Innovation Using Noise Reduction Technology Based On Finite Impulse Response (Fir) With Low-Pass Filter',org:'Project State University of Surabaya · Sep 2024 - Jan 2025',
     desc:'Cleanify Pro is a digital signal processing project designed to improve audio quality by reducing unwanted noise in audio signals. The project focuses on implementing a Finite Impulse Response (FIR) filter combined with a Low-Pass Filter to suppress high-frequency noise while preserving the important components of the original audio signal. The system processes audio input by applying digital filtering techniques to identify and minimize noise interference. By adjusting filter parameters and testing the algorithm on different audio samples, the project evaluates how FIR-based filtering can effectively enhance audio clarity without significantly distorting the signal. This project demonstrates the practical application of digital signal processing concepts, particularly filter design and signal analysis, to address common challenges in audio technology. The results show that FIR filtering can be an effective approach for improving sound quality in recordings that contain background noise.',
     details:['Implemented Finite Impulse Response (FIR) filtering algorithm for audio noise reduction.','Applied Low-Pass Filter techniques to suppress high-frequency noise in audio signals.','Conducted audio signal analysis and preprocessing before applying filtering methods.Conducted audio signal analysis and preprocessing before applying filtering methods.','Tuned filter parameters to achieve optimal balance between noise reduction and signal quality.','Tested and evaluated the filtering results using multiple audio samples to measure effectiveness.'],
@@ -1513,7 +1522,7 @@ const projects = {
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Pengolahan-Sinyal-Digital-Audio-'},
 
-p7:{image:'p7-cover.jpg',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Artificial Intelligence',
+p7:{image:'p7-cover.png',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Artificial Intelligence',
     title:'Classifier Pro: Customer Classification Analysis Using Random Forest Algorithm On Company Data',org:'Project State University of Surabaya · Okt 2024 - Jan 2025',
     desc:'Classifier Pro is an artificial intelligence project that focuses on analyzing and classifying customers using the Random Forest algorithm. The project aims to build a machine learning model that can categorize customers based on company data to support better business insights and decision-making. In this project, customer datasets were collected and processed through data preprocessing steps before being used to train a Random Forest classification model. The model was developed to identify patterns within the data and classify customers into specific categories. To evaluate the model’s effectiveness, several performance metrics such as accuracy, precision, and recall were used. Through this analysis, the project demonstrates how machine learning techniques can be applied to transform raw company data into meaningful information that supports data-driven strategies and decision-making.',
     details:['Performed data preprocessing and preparation on company customer datasets','Implemented the Random Forest algorithm for customer classification.','Trained and tested the classification model using structured data.','Evaluated model performance using accuracy, precision, and recall metrics.','Analyzed classification results to generate insights for business decision-making'],
@@ -1525,7 +1534,7 @@ p7:{image:'p7-cover.jpg',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100)
     webLink:'https://klasifikasi-pelanggan-dkp8ujgvguylkwmf75y8gn.streamlit.app/',
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Classifier-Pro'},
 
-p8:{image:'p8-cover.jpg',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))',chipC:'var(--em-600)',chipBg:'var(--em-50)',chipBor:'var(--em-100)',chip:'Multivariate Analysis',
+p8:{image:'p8-cover.png',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))',chipC:'var(--em-600)',chipBg:'var(--em-50)',chipBor:'var(--em-100)',chip:'Multivariate Analysis',
     title:'Comparative Analysis of MANOVA and MANCOVA on Heart Disease Risk Factors Using the Heart Disease Dataset',org:'Project State University of Surabaya · Jan- Jun 2025',
     desc:'This project focuses on comparing the application of Multivariate Analysis of Variance (MANOVA) and Multivariate Analysis of Covariance (MANCOVA) to analyze heart disease risk factors using the Heart Disease dataset. The analysis aims to examine how multiple independent variables influence several dependent variables simultaneously while considering the role of covariates. The study involves exploratory data analysis, data cleaning, and statistical assumption testing before applying Two-Way MANOVA and Two-Way MANCOVA models. The results are then interpreted to understand the relationships between variables and to evaluate differences in analytical outcomes between both methods. This project demonstrates the use of multivariate statistical techniques to analyze complex health-related datasets and to generate meaningful insights from multiple correlated variables',
     details:['Conducted Exploratory Data Analysis (EDA) to understand dataset characteristics','Performed data cleaning and preprocessing to prepare the dataset for analysis','Tested statistical assumptions required for MANOVA and MANCOVA','Implemented Two-Way MANOVA to analyze multivariate differences between groups','Applied Two-Way MANCOVA to examine the effect of covariates in the analysis','Compared results from both methods to interpret differences in findings','Visualized results to support statistical interpretation'],
@@ -1533,7 +1542,7 @@ p8:{image:'p8-cover.jpg',bg:'linear-gradient(135deg,var(--em-50),var(--em-100))'
     photos:[],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Perbandingan-Analisis-MANOVA-dan-MANCOVA-'},
 
-p9:{image:'p9-cover.jpg',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))',chipC:'var(--am-600)',chipBg:'var(--am-50)',chipBor:'var(--am-100)',chip:'Data Warehouse',
+p9:{image:'p9-cover.png',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))',chipC:'var(--am-600)',chipBg:'var(--am-50)',chipBor:'var(--am-100)',chip:'Data Warehouse',
     title:'Implementation of Distributed Computing for OLAP Query Execution on the COVID-19 Counties Dataset Using Celery and RabbitMQ',org:'Project State University of Surabaya · Jan — Jun 2025',
     desc:'This project focuses on implementing distributed computing techniques to improve the execution of OLAP (Online Analytical Processing) queries on the COVID-19 Counties dataset. The system leverages Celery as a distributed task queue and RabbitMQ as a message broker to distribute query processing tasks across multiple workers. The project involves preparing and processing the dataset within a data warehouse environment, enabling efficient multidimensional analysis. By distributing OLAP query workloads, the system aims to enhance performance, scalability, and processing efficiency when handling large analytical queries. Through this implementation, the project demonstrates how distributed computing frameworks can support complex analytical operations in data warehouse systems.',
     details:['Performed data preprocessing and preparation for analytical processing','Implemented OLAP operations for multidimensional data analysis','Designed distributed task execution using Celery workers','Configured RabbitMQ as the message broker for task communication','Executed OLAP queries in a distributed computing environment','Evaluated system performance and processing efficiency'],
@@ -1541,7 +1550,7 @@ p9:{image:'p9-cover.jpg',bg:'linear-gradient(135deg,var(--am-50),var(--am-100))'
     photos:[],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Data-Warehouse'},
 
-p10:{image:'p10-cover.jpg',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100))',chipC:'var(--vi-600)',chipBg:'var(--vi-50)',chipBor:'var(--vi-100)',chip:'Human–Computer Interaction (HCI)',
+p10:{image:'p10-cover.png',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100))',chipC:'var(--vi-600)',chipBg:'var(--vi-50)',chipBor:'var(--vi-100)',chip:'Human–Computer Interaction (HCI)',
     title:'Development of a Digital Application for Event and Volunteering Participation Based on Interests and Location',org:'Project State University of Surabaya· Feb — Jun 2025',
     desc:'This project focuses on designing the UI/UX concept of a digital application that facilitates user participation in events and volunteering activities based on their interests and location. Developed as part of the Human–Computer Interaction (HCI) course, the project emphasizes user-centered design to create an intuitive and engaging digital experience. The design process involved identifying user needs, developing system concepts, creating user journey scenarios, and designing interface prototypes. The final outcome is a structured UI/UX prototype that demonstrates how users can discover events, explore volunteering opportunities, and participate in activities that match their preferences and geographic location. This project highlights the importance of user analysis, interface design, and usability considerations in developing effective digital interaction systems.',
     details:['Developed a System Concept Statement for the digital application','Conducted user analysis to identify user needs and interaction patterns','Created storyboards to illustrate user interaction flows','Designed UI/UX interfaces for event and volunteering participation features','Built an interactive prototype to visualize the application concept'],
@@ -1551,7 +1560,7 @@ p10:{image:'p10-cover.jpg',bg:'linear-gradient(135deg,var(--vi-50),var(--vi-100)
     ],
     docLink:'#',codeLink:'https://www.figma.com/proto/7gTYBj04wt12BbnW2UbibL/TIM-01-IMK?node-id=81-23&p=f&t=4Tc90blp4WrwsBxC-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=13%3A2&show-proto-sidebar=1'},
 
-p11:{image:'p11-cover.jpg',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100))',chipC:'var(--cy-600)',chipBg:'var(--cy-50)',chipBor:'var(--cy-100)',chip:'Data Mining',
+p11:{image:'p11-cover.png',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100))',chipC:'var(--cy-600)',chipBg:'var(--cy-50)',chipBor:'var(--cy-100)',chip:'Data Mining',
     title:'Implementation of Market Basket Analysis, Customer Segmentation, and Seasonal Analysis to Improve Retail Sales Strategy',org:'Project State University of Surabaya · Feb - Jun 2025',
     desc:'This project focuses on applying data mining techniques to analyze retail transaction data in order to improve sales strategies. The study integrates Market Basket Analysis (MBA), Customer Segmentation, and Seasonal Analysis to identify purchasing patterns, customer behavior, and seasonal sales trends. The process involves data preprocessing, data processing, and the application of analytical models to extract meaningful insights from retail datasets. Market Basket Analysis is used to discover product association patterns, while customer segmentation groups customers based on behavioral characteristics. Seasonal analysis is performed to identify sales trends over time. Through these analyses, the project demonstrates how data mining and machine learning techniques can support data-driven decision-making and help retail businesses optimize marketing and sales strategies.',
     details:['Performed data preprocessing and data cleaning on retail transaction datasets','Applied Market Basket Analysis (MBA) to identify product association patterns','Conducted customer segmentation to group customers based on purchasing behavior','Implemented seasonal analysis to identify trends and patterns over time','Applied machine learning techniques to support data analysis','Created data visualizations to present analytical insights','Interpreted analytical results to support retail sales strategy decisions'],
@@ -1561,7 +1570,7 @@ p11:{image:'p11-cover.jpg',bg:'linear-gradient(135deg,var(--cy-50),var(--cy-100)
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Data-Mining_Market-Basket-Analysis'},
 
-p12:{image:'p12-cover.jpg',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100))',chipC:'var(--ro-600)',chipBg:'var(--ro-50)',chipBor:'var(--ro-100)',chip:'Machine Learning',
+p12:{image:'p12-cover.png',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100))',chipC:'var(--ro-600)',chipBg:'var(--ro-50)',chipBor:'var(--ro-100)',chip:'Machine Learning',
     title:'Application of Machine Learning for Clustering, Classification, and Regression on the Olist E-Commerce Dataset',org:'Project State University of Surabaya · Feb - Jun 2025',
     desc:'This project focuses on applying machine learning techniques to analyze the Olist E-Commerce dataset through clustering, classification, and regression tasks. The objective is to explore patterns within e-commerce data and build predictive models that can support better understanding of customer behavior and business insights. The project involves data preprocessing and data processing before implementing several machine learning algorithms. K-Means is used for clustering to group similar data patterns, while Random Forest and XGBoost are applied for classification and regression tasks. The results are evaluated and visualized to interpret patterns, model performance, and predictive outcomes. This project demonstrates how machine learning methods can be applied to extract insights and build predictive models from real-world e-commerce datasets.',
     details:['Performed data preprocessing and data cleaning on the Olist e-commerce dataset','Conducted data processing and feature preparation for machine learning tasks','Implemented K-Means clustering to identify patterns within the dataset','Applied Random Forest and XGBoost for classification and regression models','Visualized analytical results to understand model behavior and data patterns','Interpreted machine learning outputs to generate insights from the dataset'],
@@ -1571,7 +1580,7 @@ p12:{image:'p12-cover.jpg',bg:'linear-gradient(135deg,var(--ro-50),var(--ro-100)
     ],
     docLink:'#',codeLink:'https://github.com/rizkaayuu/Penerapan-Machine-Learning-untuk-Clustering-Classification-dan-Regression'},
 
-p13:{image:'p13-cover.jpg',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Digital Image Processing',
+p13:{image:'p13-cover.png',bg:'linear-gradient(135deg,var(--ind-50),var(--ind-100))',chipC:'var(--ind-600)',chipBg:'var(--ind-50)',chipBor:'var(--ind-100)',chip:'Digital Image Processing',
     title:'Heart Wall Segmentation Analysis on Cardiac Ultrasound Images Using Frame Differencing, Adaptive Thresholding, and Morphological Operations',org:'Project State University of Surabaya · Jan - Jun 2025',
     desc:'This project focuses on analyzing the segmentation of heart wall structures in cardiac ultrasound images using digital image processing techniques. The goal is to identify and isolate important regions of the heart from ultrasound image sequences to support better visualization and analysis. The process begins with image preprocessing to improve image quality and reduce noise. Motion detection is then performed using frame differencing to highlight changes between consecutive frames. Next, adaptive thresholding is applied to separate relevant regions from the background. Finally, morphological operations are used to refine the segmentation results and improve the clarity of the detected heart wall structures. This project demonstrates the application of digital image processing techniques to analyze medical imaging data and extract meaningful structural information from ultrasound images.',
     details:['Performed image preprocessing to improve ultrasound image quality','Applied frame differencing to detect motion and changes between frames','Implemented adaptive thresholding to separate objects from the background','Used morphological operations to refine segmentation results','Conducted segmentation analysis to identify heart wall regions','Visualized segmentation outputs to support interpretation of results'],
